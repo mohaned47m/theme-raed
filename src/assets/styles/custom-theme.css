@@ -1,0 +1,41 @@
+/*
+ * صياد نجد - Custom Theme
+ */
+
+:root {
+    --brand-dark: #2F2824;
+    --brand-secondary: #87602C;
+    --color-primary: #87602C;
+    --color-primary-dark: #2F2824;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
+
+body {
+    font-family: 'Tajawal', sans-serif !important;
+}
+
+/* Header */
+.header, header, [class*="header"] {
+    background-color: #2F2824 !important;
+}
+
+/* Buttons */
+.btn-primary, .s-button-primary, [class*="btn-primary"] {
+    background-color: #87602C !important;
+    border-color: #87602C !important;
+}
+
+.btn-primary:hover {
+    background-color: #6d4f24 !important;
+}
+
+/* Links */
+a:hover {
+    color: #87602C;
+}
+
+/* Footer */
+footer, .footer, [class*="footer"] {
+    background-color: #2F2824 !important;
+}
