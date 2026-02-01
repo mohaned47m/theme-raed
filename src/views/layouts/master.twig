@@ -83,15 +83,39 @@
     <link rel="stylesheet" href="{{ theme.font.path|cdn }}"/>
     <link rel="stylesheet" href="{{ 'fonts/sallaicons.css'|cdn }}"/>
     
-    <style>
-        :root {
-            --font-main: '{{theme.font.name}}';
-            --color-primary: {{ theme.color.primary }};
-            --color-primary-dark: {{ theme.color.darker(0.15) }};
-            --color-primary-light: {{ theme.color.lighter(0.15) }};
-            --color-primary-reverse: {{ theme.color.reverse_text }};
-        }
-    </style>
+   <style>
+    /* Custom Theme - صياد نجد */
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
+    
+    :root {
+        --font-main: 'Tajawal', sans-serif;
+        --color-primary: #87602C;
+        --color-primary-dark: #2F2824;
+        --color-primary-light: #a8845a;
+        --color-primary-reverse: #FFFFFF;
+    }
+    
+    body {
+        font-family: 'Tajawal', sans-serif !important;
+    }
+    
+    /* Header */
+    header, .header, [class*="header"] {
+        background-color: #2F2824 !important;
+    }
+    
+    /* Buttons */
+    .s-button-primary, .btn--primary, [class*="btn-primary"], .s-button-element {
+        background-color: #87602C !important;
+        border-color: #87602C !important;
+    }
+    
+    /* Footer */
+    footer, .footer {
+        background-color: #2F2824 !important;
+        color: white !important;
+    }
+</style>
     {# tracking services, custom css feature. #}
     {% hook 'head:end' %}
 </head>
