@@ -7,10 +7,10 @@
 #}
 {% set important_links = theme.settings.get('important_links') %}
 
-{# ===== Top Bar - يتبع لون الهوية ===== #}
-<div class="top-bar-custom" style="background-color: {{ theme.color.darker(0.1) }}; padding: 8px 0; font-size: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+{# ===== Top Bar ===== #}
+<div class="top-bar-custom" style="background-color: {{ theme.settings.get('topbar_bg_color', '#1a1a1a') }}; padding: 8px 0; font-size: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">
     <div class="container flex justify-between items-center">
-        <div class="flex items-center gap-6" style="color: rgba(255,255,255,0.7);">
+        <div class="flex items-center gap-6" style="color: {{ theme.settings.get('topbar_text_color', '#94a3b8') }};">
             {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
                 <button type="button" onclick="salla.event.dispatch('localization::open')" class="flex items-center gap-2 hover:text-white transition-colors" style="color: inherit;">
                     <i class="sicon-globe"></i>
@@ -23,28 +23,28 @@
                 <span>تتبع طلبك</span>
             </a>
         </div>
-        <div class="hidden md:flex items-center gap-4" style="color: rgba(255,255,255,0.7);">
-            <span style="color: {{ theme.color.lighter(0.3) }};">خبرة أكثر من 10 سنوات</span>
+        <div class="hidden md:flex items-center gap-4" style="color: {{ theme.settings.get('topbar_text_color', '#94a3b8') }};">
+            <span style="color: {{ theme.color.primary }};">خبرة أكثر من 10 سنوات</span>
             <span class="h-3 w-px" style="background-color: rgba(255,255,255,0.2);"></span>
             <span>معدات احترافية موثوقة</span>
         </div>
     </div>
 </div>
 
-{# ===== Main Header - يتبع لون الهوية ===== #}
+{# ===== Main Header ===== #}
 <header class="store-header" style="background-color: {{ theme.color.primary }} !important;">
   <div id="mainnav" class="main-nav-container shadow-default flex items-center" style="background-color: {{ theme.color.primary }} !important;">
       <div class="inner w-full" style="background-color: {{ theme.color.primary }} !important;">
           <div class="container">
               <div class="flex items-stretch justify-between relative py-3">
                   <div class="flex items-center">
-                      <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu" style="color: {{ theme.color.reverse_text }};">
+                      <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu" style="color: {{ theme.settings.get('header_text_color', '#FFFFFF') }};">
                         <i class="sicon-menu text-2xl"></i>
                       </a>
                       <a class="navbar-brand flex items-center gap-3" href="{{ store.url }}">
                           <img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo|cdn(175) }}" alt="{{ store.name }} logo" class="h-10">
                           <div class="hidden sm:flex flex-col">
-                              <span class="text-lg font-black" style="color: {{ theme.color.reverse_text }};">{{ store.name }}</span>
+                              <span class="text-lg font-black" style="color: {{ theme.settings.get('header_text_color', '#FFFFFF') }};">{{ store.name }}</span>
                               <span style="font-size: 10px; color: {{ theme.color.lighter(0.3) }}; text-transform: uppercase; letter-spacing: 0.1em;">{{ store.description|slice(0,30) ?: 'الهوية الأصلية' }}</span>
                           </div>
                       </a>
@@ -53,7 +53,7 @@
                       {% else %}
                         <h2 class="sr-only">{{ store.name }}</h2>
                       {% endif %}
-                      <custom-main-menu style="color: {{ theme.color.reverse_text }};"></custom-main-menu>
+                      <custom-main-menu style="color: {{ theme.settings.get('header_text_color', '#FFFFFF') }};"></custom-main-menu>
                   </div>
                   
                   {# Search #}
@@ -63,19 +63,19 @@
                   
                   <div class="flex items-center justify-end gap-3">
                       {% if user.type=='user' %}
-                        <salla-user-menu avatar-only show-header style="color: {{ theme.color.reverse_text }};"></salla-user-menu>
+                        <salla-user-menu avatar-only show-header style="color: {{ theme.settings.get('header_text_color', '#FFFFFF') }};"></salla-user-menu>
                       {% else %}
-                          <button class="p-2.5 rounded-lg hover:opacity-80 transition-opacity" style="background-color: rgba(255,255,255,0.1); color: {{ theme.color.reverse_text }};" aria-label="user-icon" onclick="salla.event.dispatch('login::open')">
+                          <button class="p-2.5 rounded-lg hover:opacity-80 transition-opacity" style="background-color: #FFFFFF; color: {{ theme.color.primary }};" aria-label="user-icon" onclick="salla.event.dispatch('login::open')">
                             <i class="sicon-user-circle text-xl"></i>
                           </button>
                       {% endif %}
                       
-                      <a href="/wishlist" class="p-2.5 rounded-lg hover:opacity-80 transition-opacity hidden sm:flex" style="background-color: rgba(255,255,255,0.1); color: {{ theme.color.reverse_text }};">
+                      <a href="/wishlist" class="p-2.5 rounded-lg hover:opacity-80 transition-opacity hidden sm:flex" style="background-color: #FFFFFF; color: {{ theme.color.primary }};">
                           <i class="sicon-heart text-xl"></i>
                       </a>
                       
-                      <salla-cart-summary style="background-color: {{ theme.color.darker(0.2) }}; padding: 10px; border-radius: 8px; color: {{ theme.color.reverse_text }};">
-                        <i slot="icon" class="sicon-shopping-bag text-xl" style="color: {{ theme.color.reverse_text }};"></i>
+                      <salla-cart-summary style="background-color: #FFFFFF; padding: 10px; border-radius: 8px; color: {{ theme.color.primary }};">
+                        <i slot="icon" class="sicon-shopping-bag text-xl" style="color: {{ theme.color.primary }};"></i>
                       </salla-cart-summary>
                   </div>
               </div>
