@@ -5,12 +5,11 @@
 | cart.items_count | int     |                                 |
 | cart.total       | string  | Formatted total ex: "١٠٠ ر.س"   |
 #}
-{% set important_links = theme.settings.get('important_links') %}
 
-{# ===== Top Bar ===== #}
-<div class="top-bar-custom" style="background-color: {{ theme.settings.get('topbar_bg_color', '#1a1a1a') }}; padding: 8px 0; font-size: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+{# ===== Top Bar - شريط علوي داكن ===== #}
+<div class="top-bar" style="background-color: {{ theme.color.darker(0.15) }}; padding: 8px 0; font-size: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
     <div class="container flex justify-between items-center">
-        <div class="flex items-center gap-6" style="color: {{ theme.settings.get('topbar_text_color', '#94a3b8') }};">
+        <div class="flex items-center gap-6" style="color: rgba(255,255,255,0.7);">
             {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
                 <button type="button" onclick="salla.event.dispatch('localization::open')" class="flex items-center gap-2 hover:text-white transition-colors" style="color: inherit;">
                     <i class="sicon-globe"></i>
@@ -23,8 +22,8 @@
                 <span>تتبع طلبك</span>
             </a>
         </div>
-        <div class="hidden md:flex items-center gap-4" style="color: {{ theme.settings.get('topbar_text_color', '#94a3b8') }};">
-            <span style="color: {{ theme.color.primary }};">خبرة أكثر من 10 سنوات</span>
+        <div class="hidden md:flex items-center gap-4" style="color: rgba(255,255,255,0.7);">
+            <span style="color: {{ theme.color.lighter(0.2) }};">خبرة أكثر من 10 سنوات</span>
             <span class="h-3 w-px" style="background-color: rgba(255,255,255,0.2);"></span>
             <span>معدات احترافية موثوقة</span>
         </div>
@@ -37,15 +36,18 @@
       <div class="inner w-full" style="background-color: {{ theme.color.primary }} !important;">
           <div class="container">
               <div class="flex items-stretch justify-between relative py-3">
+                  {# Right Side - Logo & Menu #}
                   <div class="flex items-center">
-                      <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu" style="color: {{ theme.settings.get('header_text_color', '#FFFFFF') }};">
+                      <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu" style="color: {{ theme.color.reverse_text }};">
                         <i class="sicon-menu text-2xl"></i>
                       </a>
                       <a class="navbar-brand flex items-center gap-3" href="{{ store.url }}">
-                          <img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo|cdn(175) }}" alt="{{ store.name }} logo" class="h-10">
+                          <img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo|cdn(175) }}" alt="{{ store.name }} logo" class="h-12 w-12 object-contain rounded-lg p-1" style="background-color: rgba(255,255,255,0.1);">
                           <div class="hidden sm:flex flex-col">
-                              <span class="text-lg font-black" style="color: {{ theme.settings.get('header_text_color', '#FFFFFF') }};">{{ store.name }}</span>
-                              <span style="font-size: 10px; color: {{ theme.color.lighter(0.3) }}; text-transform: uppercase; letter-spacing: 0.1em;">{{ store.description|slice(0,30) ?: 'الهوية الأصلية' }}</span>
+                              <span class="text-lg font-bold" style="color: {{ theme.color.reverse_text }};">{{ store.name }}</span>
+                              {% if store.description %}
+                              <span style="font-size: 10px; color: {{ theme.color.lighter(0.3) }}; text-transform: uppercase; letter-spacing: 0.05em;">{{ store.description|slice(0,25) }}</span>
+                              {% endif %}
                           </div>
                       </a>
                       {% if is_page('index') %}
@@ -53,30 +55,42 @@
                       {% else %}
                         <h2 class="sr-only">{{ store.name }}</h2>
                       {% endif %}
-                      <custom-main-menu style="color: {{ theme.settings.get('header_text_color', '#FFFFFF') }};"></custom-main-menu>
+                      <custom-main-menu class="hidden lg:block mr-8" style="color: {{ theme.color.reverse_text }};"></custom-main-menu>
                   </div>
                   
-                  {# Search #}
-                  <div class="flex-1 max-w-xl mx-8 hidden lg:block">
-                      <salla-search inline></salla-search>
+                  {# Center - Search #}
+                  <div class="flex-1 max-w-xl mx-8 hidden lg:flex items-center">
+                      <div class="w-full relative">
+                          <salla-search inline class="w-full"></salla-search>
+                      </div>
                   </div>
                   
-                  <div class="flex items-center justify-end gap-3">
+                  {# Left Side - Icons #}
+                  <div class="flex items-center justify-end gap-2">
+                      {# User #}
                       {% if user.type=='user' %}
-                        <salla-user-menu avatar-only show-header style="color: {{ theme.settings.get('header_text_color', '#FFFFFF') }};"></salla-user-menu>
+                        <salla-user-menu avatar-only show-header style="color: {{ theme.color.reverse_text }};"></salla-user-menu>
                       {% else %}
-                          <button class="p-2.5 rounded-lg hover:opacity-80 transition-opacity" style="background-color: #FFFFFF; color: {{ theme.color.primary }};" aria-label="user-icon" onclick="salla.event.dispatch('login::open')">
+                          <button class="header-icon-btn p-2.5 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center" 
+                                  style="background-color: #FFFFFF; color: {{ theme.color.primary }};" 
+                                  aria-label="تسجيل الدخول" 
+                                  onclick="salla.event.dispatch('login::open')">
                             <i class="sicon-user-circle text-xl"></i>
                           </button>
                       {% endif %}
                       
-                      <a href="/wishlist" class="p-2.5 rounded-lg hover:opacity-80 transition-opacity hidden sm:flex" style="background-color: #FFFFFF; color: {{ theme.color.primary }};">
+                      {# Wishlist #}
+                      <a href="/wishlist" class="header-icon-btn p-2.5 rounded-lg hover:opacity-90 transition-opacity hidden sm:flex items-center justify-center" 
+                         style="background-color: #FFFFFF; color: {{ theme.color.primary }};">
                           <i class="sicon-heart text-xl"></i>
                       </a>
                       
-                      <salla-cart-summary style="background-color: #FFFFFF; padding: 10px; border-radius: 8px; color: {{ theme.color.primary }};">
-                        <i slot="icon" class="sicon-shopping-bag text-xl" style="color: {{ theme.color.primary }};"></i>
-                      </salla-cart-summary>
+                      {# Cart #}
+                      <div class="header-cart-btn rounded-lg overflow-hidden" style="background-color: #FFFFFF;">
+                          <salla-cart-summary class="flex items-center gap-2 px-3 py-2" style="color: {{ theme.color.primary }};">
+                            <i slot="icon" class="sicon-shopping-bag text-xl" style="color: {{ theme.color.primary }};"></i>
+                          </salla-cart-summary>
+                      </div>
                   </div>
               </div>
           </div>
