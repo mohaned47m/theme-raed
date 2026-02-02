@@ -188,9 +188,201 @@
         }
     ],
     "components": [
-        {"key": "186b3f4f-25cf-4d3c-abca-cef7eed6f0ab", "title": {"ar": "صور متحركة", "en": "Slider"}, "icon": "sicon-image-carousel", "path": "home.enhanced-slider", "fields": []},
-        {"key": "2b1b130b-5b37-422a-9683-e0fd367460c0", "title": {"ar": "روابط سريعة", "en": "Links"}, "icon": "sicon-layout-grid-rearrange", "path": "home.main-links", "fields": []},
-        {"key": "541cc423-90c7-4230-8a33-a0342cfde4ad", "title": {"ar": "آراء العملاء", "en": "Testimonials"}, "icon": "sicon-chat-bubbles", "path": "home.custom-testimonials", "fields": []}
+        {
+            "key": "therwa-whatsapp-001",
+            "title": {
+                "ar": "ذروة - زر واتساب عائم",
+                "en": "Therwa - WhatsApp Button"
+            },
+            "icon": "sicon-whatsapp",
+            "path": "home.therwa-whatsapp",
+            "fields": [
+                {
+                    "type": "string",
+                    "label": "رقم الواتساب",
+                    "id": "whatsapp_number",
+                    "format": "text",
+                    "placeholder": "966512345678",
+                    "value": ""
+                },
+                {
+                    "type": "string",
+                    "label": "رسالة ترحيبية",
+                    "id": "whatsapp_message",
+                    "format": "text",
+                    "value": "مرحباً، أحتاج مساعدة..."
+                },
+                {
+                    "type": "items",
+                    "label": "مكان الزر",
+                    "id": "whatsapp_position",
+                    "format": "dropdown-list",
+                    "selected": [{"label": "يسار", "value": "left", "key": "left"}],
+                    "options": [{"label": "يسار", "value": "left", "key": "left"}, {"label": "يمين", "value": "right", "key": "right"}],
+                    "source": "Manual"
+                }
+            ]
+        },
+        {
+            "key": "therwa-visitors-002",
+            "title": {
+                "ar": "ذروة - عداد الزوار",
+                "en": "Therwa - Live Visitors"
+            },
+            "icon": "sicon-users",
+            "path": "home.therwa-visitors",
+            "fields": [
+                {
+                    "type": "number",
+                    "label": "الحد الأدنى",
+                    "id": "visitors_min",
+                    "format": "integer",
+                    "value": 5
+                },
+                {
+                    "type": "number",
+                    "label": "الحد الأقصى",
+                    "id": "visitors_max",
+                    "format": "integer",
+                    "value": 25
+                }
+            ]
+        },
+        {
+            "key": "therwa-trust-003",
+            "title": {
+                "ar": "ذروة - شارات الثقة",
+                "en": "Therwa - Trust Badges"
+            },
+            "icon": "sicon-shield-check",
+            "path": "home.therwa-trust",
+            "fields": [
+                {
+                    "type": "string",
+                    "label": "نص الضمان",
+                    "id": "trust_guarantee",
+                    "format": "text",
+                    "value": "ضمان سنتين"
+                },
+                {
+                    "type": "string",
+                    "label": "نص الاسترجاع",
+                    "id": "trust_return",
+                    "format": "text",
+                    "value": "استرجاع 14 يوم"
+                },
+                {
+                    "type": "string",
+                    "label": "نص الدفع الآمن",
+                    "id": "trust_payment",
+                    "format": "text",
+                    "value": "دفع آمن 100%"
+                },
+                {
+                    "type": "string",
+                    "label": "نص الشحن",
+                    "id": "trust_shipping",
+                    "format": "text",
+                    "value": "شحن سريع"
+                }
+            ]
+        },
+        {
+            "key": "therwa-stock-004",
+            "title": {
+                "ar": "ذروة - تنبيه الكمية",
+                "en": "Therwa - Stock Alert"
+            },
+            "icon": "sicon-box",
+            "path": "home.therwa-stock",
+            "fields": [
+                {
+                    "type": "number",
+                    "label": "حد التنبيه",
+                    "id": "stock_threshold",
+                    "format": "integer",
+                    "value": 10
+                },
+                {
+                    "type": "string",
+                    "label": "نص التنبيه",
+                    "id": "stock_text",
+                    "format": "text",
+                    "value": "🔥 باقي {quantity} قطع فقط!"
+                }
+            ]
+        },
+        {
+            "key": "therwa-countdown-005",
+            "title": {
+                "ar": "ذروة - عداد تنازلي",
+                "en": "Therwa - Countdown"
+            },
+            "icon": "sicon-clock",
+            "path": "home.therwa-countdown",
+            "fields": [
+                {
+                    "type": "string",
+                    "label": "نص العداد",
+                    "id": "countdown_text",
+                    "format": "text",
+                    "value": "⚡ ينتهي العرض خلال:"
+                }
+            ]
+        },
+        {
+            "key": "therwa-shipping-006",
+            "title": {
+                "ar": "ذروة - شريط الشحن المجاني",
+                "en": "Therwa - Free Shipping Bar"
+            },
+            "icon": "sicon-shipping-fast",
+            "path": "home.therwa-shipping",
+            "fields": [
+                {
+                    "type": "number",
+                    "label": "مبلغ الشحن المجاني",
+                    "id": "shipping_amount",
+                    "format": "integer",
+                    "value": 200
+                },
+                {
+                    "type": "string",
+                    "label": "نص قبل الوصول",
+                    "id": "shipping_text_before",
+                    "format": "text",
+                    "value": "أضف {amount} ر.س للشحن المجاني! 🚚"
+                },
+                {
+                    "type": "string",
+                    "label": "نص بعد الوصول",
+                    "id": "shipping_text_after",
+                    "format": "text",
+                    "value": "🎉 مبروك! شحن مجاني!"
+                }
+            ]
+        },
+        {
+            "key": "186b3f4f-25cf-4d3c-abca-cef7eed6f0ab",
+            "title": {"ar": "صور متحركة", "en": "Slider"},
+            "icon": "sicon-image-carousel",
+            "path": "home.enhanced-slider",
+            "fields": []
+        },
+        {
+            "key": "2b1b130b-5b37-422a-9683-e0fd367460c0",
+            "title": {"ar": "روابط سريعة", "en": "Links"},
+            "icon": "sicon-layout-grid-rearrange",
+            "path": "home.main-links",
+            "fields": []
+        },
+        {
+            "key": "541cc423-90c7-4230-8a33-a0342cfde4ad",
+            "title": {"ar": "آراء العملاء", "en": "Testimonials"},
+            "icon": "sicon-chat-bubbles",
+            "path": "home.custom-testimonials",
+            "fields": []
+        }
     ],
     "support_url": "https://salla.com/",
     "description": {"ar": "ثيم ذروة", "en": "Therwa Theme"}
