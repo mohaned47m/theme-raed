@@ -1,7 +1,5 @@
-{# ############## Shared Variables in all views ################ #}
 <!DOCTYPE html>
 <html lang="{{ user.language.code }}" dir="{{ user.language.dir }}">
-<!-- بسم الله الرحمن الرحيم -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +15,7 @@
     {% block head_scripts %}{% endblock %}
 
     <script data-cfasync="false">
-        window.header_is_sticky = "{{theme.settings.get('header_is_sticky', 'Default Value')}}"
+        window.header_is_sticky = "{{theme.settings.get('header_is_sticky', true)}}"
         window.imageZoom = "{{theme.settings.get('imageZoom')}}"
         window.can_access_wallet = {{ user.can_access_wallet | json_encode }}
         window.enable_more_menu = "{{ theme.settings.get('enable_more_menu', true) }}"
@@ -35,13 +33,8 @@
 <body id="app" class="theme-raed overflow-x-hidden {% hook 'body:classes' %}
   {{ theme.settings.get('footer_is_dark') ? ' footer-is-dark' : ' footer-is-light' }}
   {{ theme.settings.get('topnav_is_dark') ? ' topnav-is-dark' : '' }}
-  {{ theme.settings.get('sticky_add_to_cart') ? ' is-sticky-product-bar' : '' }}
-  ">
-<noscript>
-    To get full functionality of this site you need to enable JavaScript. Here is how
-    <a href="https://www.enable-javascript.com/" rel="noreferrer"
-       target="_blank">To enable JavaScript on webpage</a>.
-</noscript>
+  {{ theme.settings.get('sticky_add_to_cart') ? ' is-sticky-product-bar' : '' }}">
+<noscript>To get full functionality of this site you need to enable JavaScript.</noscript>
 <div class="app-inner flex flex-col min-h-full">
     {% hook 'body:start' %}
     {% component 'header.header' %}
@@ -55,143 +48,95 @@
     <salla-add-product-toast></salla-add-product-toast>
 {% endif %}
 <script defer crossorigin="anonymous" src="{{ 'app.js' | asset }}"></script>
-
-{# Twilight Components #}
 <salla-offer-modal></salla-offer-modal>
 <salla-search></salla-search>
-
 {% if user.type=='guest' %}
     <salla-login-modal></salla-login-modal>
 {% endif %}
 {% if store.scope %}
     <salla-scopes selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>
 {% endif %}
-
 {% block scripts %}{% endblock %}
 
-{# ===== Custom Theme Styles - في آخر الصفحة عشان يتغلب على كل الـ CSS ===== #}
 <style>
-    /* ===== Font ===== */
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
-    
-    body, body * {
-        font-family: 'Cairo', sans-serif !important;
-    }
-    
-    body {
-        background-color: #FFFFFF !important;
-    }
-    
-    /* ===== HEADER BACKGROUND ===== */
-    .store-header,
-    header,
-    #mainnav,
-    .main-nav-container,
-    .main-nav-container .inner,
-    .main-nav-container.shadow-default,
-    nav.main-nav-container,
-    .bg-white.main-nav-container,
-    [class*="header"],
-    .top-navbar {
-        background-color: {{ theme.settings.get('header_bg_color', '#2F2824') }} !important;
-        background: {{ theme.settings.get('header_bg_color', '#2F2824') }} !important;
-    }
-    
-    /* ===== HEADER TEXT ===== */
-    .store-header a,
-    .store-header span,
-    .store-header p,
-    .store-header div,
-    #mainnav a,
-    #mainnav span,
-    .main-nav-container a,
-    .main-nav-container span,
-    custom-main-menu a,
-    custom-main-menu span,
-    custom-main-menu,
-    .navbar-brand span,
-    .top-navbar a,
-    .top-navbar span {
-        color: {{ theme.settings.get('header_text_color', '#FFFFFF') }} !important;
-    }
-    
-    /* ===== HEADER ICONS ===== */
-    .store-header i,
-    #mainnav i,
-    .main-nav-container i,
-    .header-btn i,
-    salla-cart-summary i,
-    [class*="header"] i {
-        color: {{ theme.settings.get('header_icon_color', '#FFFFFF') }} !important;
-    }
-    
-    /* ===== HEADER ICON BUTTONS BACKGROUND ===== */
-    .header-btn,
-    salla-cart-summary,
-    .btn--rounded-gray {
-        background-color: {{ theme.settings.get('header_icon_bg_color', '#87602C') }} !important;
-        background: {{ theme.settings.get('header_icon_bg_color', '#87602C') }} !important;
-        border-radius: 8px !important;
-        padding: 8px !important;
-    }
-    
-    salla-cart-summary span,
-    salla-cart-summary a {
-        color: {{ theme.settings.get('header_icon_color', '#FFFFFF') }} !important;
-    }
-    
-    /* ===== DROPDOWN MENU ===== */
-    .s-menu-dropdown,
-    .dropdown-menu,
-    [class*="dropdown"],
-    .sub-menu {
-        background-color: {{ theme.settings.get('header_bg_color', '#2F2824') }} !important;
-        background: {{ theme.settings.get('header_bg_color', '#2F2824') }} !important;
-    }
-    
-    .s-menu-dropdown a,
-    .s-menu-dropdown span,
-    .dropdown-menu a,
-    .dropdown-menu span {
-        color: {{ theme.settings.get('header_text_color', '#FFFFFF') }} !important;
-    }
-    
-    /* ===== FOOTER BACKGROUND ===== */
-    footer,
-    .footer,
-    [class*="footer"],
-    .main-footer {
-        background-color: {{ theme.settings.get('footer_bg_color', '#2F2824') }} !important;
-        background: {{ theme.settings.get('footer_bg_color', '#2F2824') }} !important;
-    }
-    
-    /* ===== FOOTER TEXT ===== */
-    footer *,
-    .footer *,
-    footer a,
-    footer span,
-    footer p,
-    footer i,
-    footer h1, footer h2, footer h3, footer h4, footer h5, footer h6,
-    .footer a,
-    .footer span,
-    .footer p,
-    .footer i,
-    .footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6 {
-        color: {{ theme.settings.get('footer_text_color', '#FFFFFF') }} !important;
-    }
-    
-    footer a:hover, .footer a:hover {
-        opacity: 0.7 !important;
-    }
-    
-    /* ===== BUTTONS ===== */
-    .s-button-primary, 
-    .btn--primary,
-    [class*="btn-primary"] {
-        background-color: {{ theme.color.primary }} !important;
-        border-color: {{ theme.color.primary }} !important;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+body, body * { font-family: 'Cairo', sans-serif !important; }
+body { background-color: #FFFFFF !important; }
+
+/* ===== TOP BAR ===== */
+.top-navbar {
+    background-color: {{ theme.settings.get('topbar_bg_color', '#1a1a1a') }} !important;
+    background: {{ theme.settings.get('topbar_bg_color', '#1a1a1a') }} !important;
+}
+.top-navbar, .top-navbar a, .top-navbar span, .top-navbar i, .top-navbar p {
+    color: {{ theme.settings.get('topbar_text_color', '#94a3b8') }} !important;
+}
+
+/* ===== HEADER (Background = Brand Color) ===== */
+.store-header, header, #mainnav, .main-nav-container, .main-nav-container .inner,
+.main-nav-container.shadow-default, nav.main-nav-container, .bg-white.main-nav-container {
+    background-color: {{ theme.color.primary }} !important;
+    background: {{ theme.color.primary }} !important;
+}
+
+/* Header Text */
+.store-header a, .store-header span, .store-header p, #mainnav a, #mainnav span,
+.main-nav-container a, .main-nav-container span, custom-main-menu a, custom-main-menu span,
+custom-main-menu, .navbar-brand span {
+    color: {{ theme.settings.get('header_text_color', '#FFFFFF') }} !important;
+}
+
+/* Header Icons */
+.store-header i, #mainnav i, .main-nav-container i, .header-btn i, salla-cart-summary i {
+    color: {{ theme.settings.get('header_icon_color', '#FFFFFF') }} !important;
+}
+
+/* Header Icon Buttons */
+.header-btn, salla-cart-summary, .btn--rounded-gray {
+    background-color: {{ theme.settings.get('header_icon_bg_color', '#87602C') }} !important;
+    background: {{ theme.settings.get('header_icon_bg_color', '#87602C') }} !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+}
+salla-cart-summary span, salla-cart-summary a {
+    color: {{ theme.settings.get('header_icon_color', '#FFFFFF') }} !important;
+}
+
+/* Dropdown */
+.s-menu-dropdown, .dropdown-menu, .sub-menu {
+    background-color: {{ theme.color.primary }} !important;
+    background: {{ theme.color.primary }} !important;
+}
+.s-menu-dropdown a, .s-menu-dropdown span, .dropdown-menu a, .dropdown-menu span {
+    color: {{ theme.settings.get('header_text_color', '#FFFFFF') }} !important;
+}
+
+/* ===== FOOTER (Background = Brand Color) ===== */
+footer, .footer, .main-footer {
+    background-color: {{ theme.color.primary }} !important;
+    background: {{ theme.color.primary }} !important;
+}
+
+/* Footer Text */
+footer, footer *, .footer, .footer *, footer a, footer span, footer p,
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6,
+.footer a, .footer span, .footer p {
+    color: {{ theme.settings.get('footer_text_color', '#FFFFFF') }} !important;
+}
+
+/* Footer Icons */
+footer i, .footer i {
+    color: {{ theme.settings.get('footer_icon_color', '#FFFFFF') }} !important;
+}
+
+footer a:hover, .footer a:hover { opacity: 0.7 !important; }
+
+/* ===== BUTTONS ===== */
+.s-button-primary, .btn--primary {
+    background-color: {{ theme.color.primary }} !important;
+    border-color: {{ theme.color.primary }} !important;
+}
 </style>
 </body>
 </html>
