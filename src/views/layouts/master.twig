@@ -99,86 +99,68 @@
         font-family: 'Cairo', sans-serif !important;
     }
     
-    /* Header Background Fix */
-    header, .header, .store-header, .main-nav-container, .main-nav-container .inner,
-    #mainnav, [class*="header"], .top-navbar {
+    /* Body Background - White */
+    body {
+        background-color: #FFFFFF !important;
+    }
+    
+    /* Header & Top Bar Only */
+    .store-header,
+    #mainnav,
+    .main-nav-container,
+    .main-nav-container .inner {
         background-color: #2F2824 !important;
     }
     
-    /* Menu Text Color Fix */
-    .main-nav-container a, 
-    .main-nav-container span,
-    .main-nav-container button,
-    custom-main-menu,
+    /* Menu Links */
     custom-main-menu a,
     custom-main-menu span,
-    .main-menu a,
-    .main-menu span,
-    nav a, nav span {
+    .main-nav-container a,
+    .main-nav-container span {
         color: white !important;
     }
     
-    /* Dropdown Menu Fix */
-    .dropdown-menu, 
-    [class*="dropdown"], 
-    [class*="submenu"],
-    .sub-menu,
-    .mega-menu {
+    /* Dropdown Menu */
+    .s-menu-dropdown,
+    .dropdown-menu {
         background-color: #2F2824 !important;
     }
     
-    .dropdown-menu a,
-    [class*="dropdown"] a,
-    [class*="submenu"] a,
-    .sub-menu a,
-    .mega-menu a {
+    .s-menu-dropdown a,
+    .dropdown-menu a {
         color: white !important;
     }
     
-    .dropdown-menu a:hover,
-    [class*="dropdown"] a:hover {
+    .s-menu-dropdown a:hover,
+    .dropdown-menu a:hover {
         color: #87602C !important;
-        background-color: rgba(255,255,255,0.1) !important;
-    }
-    
-    /* Search Box */
-    .header-search input,
-    salla-search input {
-        background-color: rgba(255,255,255,0.1) !important;
-        border-color: rgba(255,255,255,0.1) !important;
-        color: white !important;
-    }
-    
-    salla-search input::placeholder {
-        color: #94a3b8 !important;
     }
     
     /* Buttons */
-    .s-button-primary, .btn--primary, [class*="btn-primary"], .s-button-element {
+    .s-button-primary, 
+    .btn--primary {
         background-color: #87602C !important;
         border-color: #87602C !important;
     }
     
-    /* Footer */
-    footer, .footer, [class*="footer"], .main-footer {
+    /* Footer Only */
+    footer, 
+    .footer {
         background-color: #2F2824 !important;
         color: white !important;
     }
     
-    footer *, .footer *, [class*="footer"] * {
+    footer a, footer span, footer p,
+    .footer a, .footer span, .footer p {
         color: #d1d5db !important;
     }
     
-    footer h1, footer h2, footer h3, footer h4, footer h5,
-    .footer h1, .footer h2, .footer h3, .footer h4, .footer h5 {
+    footer h4, footer h5,
+    .footer h4, .footer h5 {
         color: white !important;
     }
     
-    footer a:hover, .footer a:hover {
-        color: #87602C !important;
-    }
-    
-    /* Fix white section under header */
+    /* Hide old top navbar */
     .top-navbar {
         display: none !important;
     }
