@@ -28,15 +28,25 @@
         {
             "type": "static",
             "format": "title",
-            "id": "header-footer-colors-title",
-            "value": "<div class='rounded-lg' style='background-color: #1a1a2e; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>🎨 ألوان الهيدر والفوتر</h6></div>",
+            "id": "header-colors-title",
+            "value": "<div class='rounded-lg' style='background-color: #1a1a2e; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>🎨 ألوان الهيدر</h6></div>",
             "variant": "h6"
         },
         {
             "type": "string",
             "icon": "sicon-paint-brush",
+            "label": "لون خلفية الهيدر",
+            "description": "اختر لون خلفية الهيدر",
+            "id": "header_bg_color",
+            "format": "color",
+            "required": false,
+            "value": "#2F2824"
+        },
+        {
+            "type": "string",
+            "icon": "sicon-paint-brush",
             "label": "لون نص الهيدر",
-            "description": "اختر لون النصوص والأيقونات في الهيدر",
+            "description": "اختر لون النصوص في الهيدر",
             "id": "header_text_color",
             "format": "color",
             "required": false,
@@ -45,8 +55,50 @@
         {
             "type": "string",
             "icon": "sicon-paint-brush",
+            "label": "لون الأيقونات",
+            "description": "اختر لون الأيقونات في الهيدر",
+            "id": "header_icon_color",
+            "format": "color",
+            "required": false,
+            "value": "#FFFFFF"
+        },
+        {
+            "type": "string",
+            "icon": "sicon-paint-brush",
+            "label": "لون خلفية الأيقونات",
+            "description": "اختر لون خلفية الأيقونات",
+            "id": "header_icon_bg_color",
+            "format": "color",
+            "required": false,
+            "value": "#87602C"
+        },
+        {
+            "type": "static",
+            "id": "static-line-header",
+            "format": "line"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "footer-colors-title",
+            "value": "<div class='rounded-lg' style='background-color: #1a1a2e; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>🎨 ألوان الفوتر</h6></div>",
+            "variant": "h6"
+        },
+        {
+            "type": "string",
+            "icon": "sicon-paint-brush",
+            "label": "لون خلفية الفوتر",
+            "description": "اختر لون خلفية الفوتر",
+            "id": "footer_bg_color",
+            "format": "color",
+            "required": false,
+            "value": "#2F2824"
+        },
+        {
+            "type": "string",
+            "icon": "sicon-paint-brush",
             "label": "لون نص الفوتر",
-            "description": "اختر لون النصوص والروابط في الفوتر",
+            "description": "اختر لون النصوص في الفوتر",
             "id": "footer_text_color",
             "format": "color",
             "required": false,
@@ -54,7 +106,7 @@
         },
         {
             "type": "static",
-            "id": "static-line-colors",
+            "id": "static-line-footer",
             "format": "line"
         },
         {
@@ -221,124 +273,6 @@
         {
             "type": "static",
             "format": "title",
-            "id": "freeship-section-title",
-            "value": "<div style='background-color: #3498DB; color: white; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px;'><strong>🚚 شريط الشحن المجاني</strong></div>",
-            "variant": "h6"
-        },
-        {
-            "type": "boolean",
-            "icon": "sicon-shipping-fast",
-            "label": "تفعيل شريط الشحن المجاني",
-            "description": "يظهر شريط يوضح كم باقي للحصول على شحن مجاني",
-            "id": "enable_free_shipping_bar",
-            "format": "switch",
-            "required": false,
-            "value": true,
-            "selected": true
-        },
-        {
-            "type": "number",
-            "icon": "sicon-money",
-            "label": "الحد الأدنى للشحن المجاني (ر.س)",
-            "id": "free_shipping_amount",
-            "format": "integer",
-            "required": false,
-            "value": 200,
-            "minimum": 50,
-            "maximum": 5000,
-            "conditions": [
-                {
-                    "id": "enable_free_shipping_bar",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "type": "string",
-            "icon": "sicon-format-text-alt",
-            "label": "نص قبل الوصول للحد",
-            "id": "free_shipping_text_before",
-            "format": "text",
-            "required": false,
-            "placeholder": "أضف {amount} للحصول على شحن مجاني!",
-            "value": "أضف {amount} ر.س للحصول على شحن مجاني! 🚚",
-            "multilanguage": true,
-            "conditions": [
-                {
-                    "id": "enable_free_shipping_bar",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "type": "string",
-            "icon": "sicon-format-text-alt",
-            "label": "نص بعد الوصول للحد",
-            "id": "free_shipping_text_after",
-            "format": "text",
-            "required": false,
-            "placeholder": "مبروك! حصلت على شحن مجاني",
-            "value": "🎉 مبروك! حصلت على شحن مجاني!",
-            "multilanguage": true,
-            "conditions": [
-                {
-                    "id": "enable_free_shipping_bar",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "type": "static",
-            "id": "static-line-ship",
-            "format": "line"
-        },
-        {
-            "type": "static",
-            "format": "title",
-            "id": "countdown-section-title",
-            "value": "<div style='background-color: #9B59B6; color: white; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px;'><strong>⏰ عداد تنازلي للعروض</strong></div>",
-            "variant": "h6"
-        },
-        {
-            "type": "boolean",
-            "icon": "sicon-clock",
-            "label": "تفعيل العداد التنازلي",
-            "description": "يظهر عداد تنازلي على المنتجات المخفضة (FOMO)",
-            "id": "enable_countdown_timer",
-            "format": "switch",
-            "required": false,
-            "value": true,
-            "selected": true
-        },
-        {
-            "type": "string",
-            "icon": "sicon-format-text-alt",
-            "label": "نص العداد",
-            "id": "countdown_text",
-            "format": "text",
-            "required": false,
-            "placeholder": "ينتهي العرض خلال:",
-            "value": "⚡ ينتهي العرض خلال:",
-            "multilanguage": true,
-            "conditions": [
-                {
-                    "id": "enable_countdown_timer",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "type": "static",
-            "id": "static-line-count",
-            "format": "line"
-        },
-        {
-            "type": "static",
-            "format": "title",
             "id": "trust-section-title",
             "value": "<div style='background-color: #27AE60; color: white; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px;'><strong>🛡️ شارات الثقة</strong></div>",
             "variant": "h6"
@@ -496,7 +430,6 @@
         {
             "id": "header_is_sticky",
             "label": "تثبت القائمة الرئيسية أعلى الصفحة عند التمرير لأسفل",
-            "description": "يُنصح بالغاء تفعيلها في حالة وجود عناصر كثيرة في القائمة المنسدلة",
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "format": "switch",
@@ -508,7 +441,6 @@
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "label": "شريط علوي داكن",
-            "description": null,
             "id": "topnav_is_dark",
             "format": "switch",
             "required": false,
@@ -519,7 +451,6 @@
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "label": "عرض روابط الصفحات الهامة في الشريط العلوي",
-            "description": "مثل صفحة الهبوط ، المدونة ،الصفحات التعريفية",
             "id": "important_links",
             "format": "switch",
             "required": false,
@@ -530,7 +461,6 @@
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "label": "تفعيل قائمة المزيد في القائمة الرئيسية",
-            "description": "عند تفعيلها، ستظهر الروابط الإضافية في قائمة منسدلة تسمى 'المزيد'",
             "id": "enable_more_menu",
             "format": "switch",
             "required": false,
@@ -553,7 +483,6 @@
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "label": "الوضع الداكن للفوتر",
-            "description": null,
             "id": "footer_is_dark",
             "format": "switch",
             "required": false,
@@ -576,7 +505,6 @@
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "label": "تفعيل إشعار الإضافة للسلة المحسن",
-            "description": null,
             "id": "enable_add_product_toast",
             "format": "switch",
             "required": false,
@@ -587,7 +515,6 @@
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "label": "تثبيت زر الإضافة والكمية أسفل شاشة الجوال",
-            "description": null,
             "id": "sticky_add_to_cart",
             "format": "switch",
             "required": false,
@@ -598,7 +525,6 @@
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "label": "اظهار الوسوم",
-            "description": null,
             "id": "show_tags",
             "format": "switch",
             "required": false,
@@ -637,7 +563,6 @@
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "label": "تكبير الصور في سليدر صور المنتج",
-            "description": "تمكنك من تكبير الصورة لرؤية التفاصيل",
             "id": "imageZoom",
             "format": "switch",
             "required": false,
@@ -654,59 +579,7 @@
             },
             "icon": "sicon-image-carousel",
             "path": "home.enhanced-slider",
-            "fields": [
-                {
-                    "type": "static",
-                    "format": "description",
-                    "id": "static-desc",
-                    "value": "<div ><img class='w-full' src='https://cdn.salla.network/images/themes/raed/preview-images/images-slider-enhancement.png?v=1.1'></div>"
-                },
-                {
-                    "id": "slides",
-                    "type": "collection",
-                    "format": "collection",
-                    "required": true,
-                    "minLength": 1,
-                    "maxLength": 10,
-                    "label": null,
-                    "item_label": "صورة",
-                    "value": [],
-                    "fields": [
-                        {
-                            "type": "string",
-                            "icon": "sicon-image",
-                            "value": null,
-                            "id": "slides.image",
-                            "label": "صورة البنر",
-                            "format": "image",
-                            "required": true,
-                            "description": "* المقاس المناسب للصورة هو 900×600 بكسل"
-                        },
-                        {
-                            "type": "string",
-                            "icon": "sicon-format-text-alt",
-                            "label": "عنوان رئيسي",
-                            "multilanguage": true,
-                            "id": "slides.title",
-                            "value": null,
-                            "required": false,
-                            "format": "text",
-                            "maxLength": 100
-                        },
-                        {
-                            "type": "string",
-                            "icon": "sicon-typography",
-                            "label": "نص إضافي",
-                            "multilanguage": true,
-                            "id": "slides.description",
-                            "value": null,
-                            "format": "textarea",
-                            "required": false,
-                            "maxLength": 255
-                        }
-                    ]
-                }
-            ]
+            "fields": []
         },
         {
             "key": "2b1b130b-5b37-422a-9683-e0fd367460c0",
