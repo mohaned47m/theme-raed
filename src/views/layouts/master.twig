@@ -37,10 +37,11 @@
         
         :root {
             --font-main: 'Cairo', sans-serif;
-            --color-primary: {{ theme.color.primary }};
-            --color-primary-dark: {{ theme.color.darker(0.2) }};
-            --color-primary-light: {{ theme.color.lighter(0.2) }};
+            --header-bg-color: {{ theme.settings.get('header_bg_color', '#2F2824') }};
             --header-text-color: {{ theme.settings.get('header_text_color', '#FFFFFF') }};
+            --header-icon-color: {{ theme.settings.get('header_icon_color', '#FFFFFF') }};
+            --header-icon-bg-color: {{ theme.settings.get('header_icon_bg_color', '#87602C') }};
+            --footer-bg-color: {{ theme.settings.get('footer_bg_color', '#2F2824') }};
             --footer-text-color: {{ theme.settings.get('footer_text_color', '#FFFFFF') }};
         }
         
@@ -52,15 +53,15 @@
             background-color: #FFFFFF !important;
         }
         
-        /* ===== Header - الخلفية من لون الهوية ===== */
+        /* ===== Header Background ===== */
         .store-header,
         #mainnav,
         .main-nav-container,
         .main-nav-container .inner {
-            background-color: var(--color-primary) !important;
+            background-color: var(--header-bg-color) !important;
         }
         
-        /* Header Text - لون النص من الإعدادات */
+        /* ===== Header Text ===== */
         custom-main-menu a,
         custom-main-menu span,
         .main-nav-container a,
@@ -68,22 +69,35 @@
         .navbar-brand span,
         .store-header a,
         .store-header span,
-        .store-header i,
         #mainnav a,
-        #mainnav span,
-        #mainnav i,
-        .header-btn,
-        .header-btn i,
-        salla-cart-summary,
-        salla-cart-summary i,
-        salla-cart-summary span {
+        #mainnav span {
             color: var(--header-text-color) !important;
         }
         
-        /* Dropdown */
+        /* ===== Header Icons ===== */
+        .store-header i,
+        #mainnav i,
+        .header-btn i,
+        salla-cart-summary i {
+            color: var(--header-icon-color) !important;
+        }
+        
+        /* ===== Header Icon Background (Cart, User, etc) ===== */
+        .header-btn,
+        salla-cart-summary {
+            background-color: var(--header-icon-bg-color) !important;
+            border-radius: 8px;
+            padding: 8px;
+        }
+        
+        salla-cart-summary span {
+            color: var(--header-icon-color) !important;
+        }
+        
+        /* ===== Dropdown Menu ===== */
         .s-menu-dropdown,
         .dropdown-menu {
-            background-color: var(--color-primary) !important;
+            background-color: var(--header-bg-color) !important;
         }
         
         .s-menu-dropdown a,
@@ -93,15 +107,15 @@
         
         .s-menu-dropdown a:hover,
         .dropdown-menu a:hover {
-            background-color: var(--color-primary-dark) !important;
+            opacity: 0.8;
         }
         
-        /* ===== Footer - الخلفية من لون الهوية ===== */
+        /* ===== Footer Background ===== */
         footer, .footer {
-            background-color: var(--color-primary) !important;
+            background-color: var(--footer-bg-color) !important;
         }
         
-        /* Footer Text - لون النص من الإعدادات */
+        /* ===== Footer Text ===== */
         footer *, 
         .footer *,
         footer a, 
@@ -124,20 +138,13 @@
         /* ===== Buttons ===== */
         .s-button-primary, 
         .btn--primary {
-            background-color: var(--color-primary) !important;
-            border-color: var(--color-primary) !important;
+            background-color: {{ theme.color.primary }} !important;
+            border-color: {{ theme.color.primary }} !important;
         }
         
         /* Top Bar */
         .top-navbar {
             display: none !important;
-        }
-        
-        /* Cart Button */
-        salla-cart-summary {
-            background-color: var(--color-primary-dark) !important;
-            border-radius: 8px;
-            padding: 8px;
         }
     </style>
     {% hook 'head:end' %}
