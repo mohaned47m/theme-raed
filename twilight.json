@@ -100,13 +100,267 @@
         {
             "type": "static",
             "format": "title",
+            "id": "whatsapp-title",
+            "value": "<div style='background:#25D366;padding:12px;border-radius:8px;margin-bottom:15px;text-align:center;'><strong style='color:#fff;'>💬 زر الواتساب العائم</strong></div>",
+            "variant": "h6"
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-whatsapp",
+            "label": "تفعيل زر الواتساب",
+            "id": "enable_whatsapp",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "string",
+            "icon": "sicon-phone",
+            "label": "رقم الواتساب",
+            "id": "whatsapp_number",
+            "format": "text",
+            "placeholder": "966512345678",
+            "value": "",
+            "conditions": [{"id": "enable_whatsapp", "operation": "=", "value": true}]
+        },
+        {
+            "type": "string",
+            "icon": "sicon-chat-bubble",
+            "label": "رسالة ترحيبية",
+            "id": "whatsapp_message",
+            "format": "text",
+            "value": "مرحباً، أحتاج مساعدة...",
+            "conditions": [{"id": "enable_whatsapp", "operation": "=", "value": true}]
+        },
+        {
+            "type": "items",
+            "icon": "sicon-layout",
+            "label": "مكان الزر",
+            "id": "whatsapp_position",
+            "format": "dropdown-list",
+            "selected": [{"label": "يسار", "value": "left", "key": "left"}],
+            "options": [{"label": "يسار", "value": "left", "key": "left"}, {"label": "يمين", "value": "right", "key": "right"}],
+            "source": "Manual",
+            "conditions": [{"id": "enable_whatsapp", "operation": "=", "value": true}]
+        },
+        {
+            "type": "static",
+            "id": "line4",
+            "format": "line"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "visitors-title",
+            "value": "<div style='background:#E74C3C;padding:12px;border-radius:8px;margin-bottom:15px;text-align:center;'><strong style='color:#fff;'>👥 عداد الزوار</strong></div>",
+            "variant": "h6"
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-users",
+            "label": "تفعيل عداد الزوار",
+            "id": "enable_visitors",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "number",
+            "icon": "sicon-sort-numeric-down",
+            "label": "الحد الأدنى",
+            "id": "visitors_min",
+            "format": "integer",
+            "value": 5,
+            "conditions": [{"id": "enable_visitors", "operation": "=", "value": true}]
+        },
+        {
+            "type": "number",
+            "icon": "sicon-sort-numeric-up",
+            "label": "الحد الأقصى",
+            "id": "visitors_max",
+            "format": "integer",
+            "value": 25,
+            "conditions": [{"id": "enable_visitors", "operation": "=", "value": true}]
+        },
+        {
+            "type": "static",
+            "id": "line5",
+            "format": "line"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "trust-title",
+            "value": "<div style='background:#27AE60;padding:12px;border-radius:8px;margin-bottom:15px;text-align:center;'><strong style='color:#fff;'>🛡️ شارات الثقة</strong></div>",
+            "variant": "h6"
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-shield-check",
+            "label": "تفعيل شارات الثقة",
+            "id": "enable_trust",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "string",
+            "label": "نص الضمان",
+            "id": "trust_guarantee",
+            "format": "text",
+            "value": "ضمان سنتين",
+            "conditions": [{"id": "enable_trust", "operation": "=", "value": true}]
+        },
+        {
+            "type": "string",
+            "label": "نص الاسترجاع",
+            "id": "trust_return",
+            "format": "text",
+            "value": "استرجاع 14 يوم",
+            "conditions": [{"id": "enable_trust", "operation": "=", "value": true}]
+        },
+        {
+            "type": "string",
+            "label": "نص الدفع الآمن",
+            "id": "trust_payment",
+            "format": "text",
+            "value": "دفع آمن 100%",
+            "conditions": [{"id": "enable_trust", "operation": "=", "value": true}]
+        },
+        {
+            "type": "string",
+            "label": "نص الشحن",
+            "id": "trust_shipping",
+            "format": "text",
+            "value": "شحن سريع",
+            "conditions": [{"id": "enable_trust", "operation": "=", "value": true}]
+        },
+        {
+            "type": "static",
+            "id": "line6",
+            "format": "line"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "stock-title",
+            "value": "<div style='background:#E67E22;padding:12px;border-radius:8px;margin-bottom:15px;text-align:center;'><strong style='color:#fff;'>📦 تنبيه الكمية</strong></div>",
+            "variant": "h6"
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-box",
+            "label": "تفعيل تنبيه الكمية",
+            "id": "enable_stock",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "number",
+            "label": "حد التنبيه",
+            "id": "stock_threshold",
+            "format": "integer",
+            "value": 10,
+            "conditions": [{"id": "enable_stock", "operation": "=", "value": true}]
+        },
+        {
+            "type": "string",
+            "label": "نص التنبيه",
+            "id": "stock_text",
+            "format": "text",
+            "value": "🔥 باقي {quantity} قطع فقط!",
+            "conditions": [{"id": "enable_stock", "operation": "=", "value": true}]
+        },
+        {
+            "type": "static",
+            "id": "line7",
+            "format": "line"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "countdown-title",
+            "value": "<div style='background:#9B59B6;padding:12px;border-radius:8px;margin-bottom:15px;text-align:center;'><strong style='color:#fff;'>⏰ عداد تنازلي</strong></div>",
+            "variant": "h6"
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-clock",
+            "label": "تفعيل العداد التنازلي",
+            "id": "enable_countdown",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "string",
+            "label": "نص العداد",
+            "id": "countdown_text",
+            "format": "text",
+            "value": "⚡ ينتهي العرض خلال:",
+            "conditions": [{"id": "enable_countdown", "operation": "=", "value": true}]
+        },
+        {
+            "type": "static",
+            "id": "line8",
+            "format": "line"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "shipping-title",
+            "value": "<div style='background:#3498DB;padding:12px;border-radius:8px;margin-bottom:15px;text-align:center;'><strong style='color:#fff;'>🚚 شريط الشحن المجاني</strong></div>",
+            "variant": "h6"
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-shipping-fast",
+            "label": "تفعيل شريط الشحن",
+            "id": "enable_shipping_bar",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "number",
+            "label": "مبلغ الشحن المجاني",
+            "id": "shipping_amount",
+            "format": "integer",
+            "value": 200,
+            "conditions": [{"id": "enable_shipping_bar", "operation": "=", "value": true}]
+        },
+        {
+            "type": "string",
+            "label": "نص قبل الوصول",
+            "id": "shipping_text_before",
+            "format": "text",
+            "value": "أضف {amount} ر.س للشحن المجاني! 🚚",
+            "conditions": [{"id": "enable_shipping_bar", "operation": "=", "value": true}]
+        },
+        {
+            "type": "string",
+            "label": "نص بعد الوصول",
+            "id": "shipping_text_after",
+            "format": "text",
+            "value": "🎉 مبروك! شحن مجاني!",
+            "conditions": [{"id": "enable_shipping_bar", "operation": "=", "value": true}]
+        },
+        {
+            "type": "static",
+            "id": "line9",
+            "format": "line"
+        },
+        {
+            "type": "static",
+            "format": "title",
             "id": "general-title",
             "value": "<div style='background:#21636d;padding:12px;border-radius:8px;margin-bottom:15px;text-align:center;'><strong style='color:#fff;'>⚙️ إعدادات عامة</strong></div>",
             "variant": "h6"
         },
         {
             "id": "header_is_sticky",
-            "label": "تثبيت الهيدر عند التمرير",
+            "label": "تثبيت الهيدر",
             "type": "boolean",
             "format": "switch",
             "value": true,
@@ -114,7 +368,7 @@
         },
         {
             "id": "enable_more_menu",
-            "label": "تفعيل قائمة المزيد",
+            "label": "قائمة المزيد",
             "type": "boolean",
             "format": "switch",
             "value": true,
@@ -190,177 +444,45 @@
     "components": [
         {
             "key": "therwa-whatsapp-001",
-            "title": {
-                "ar": "ذروة - زر واتساب عائم",
-                "en": "Therwa - WhatsApp Button"
-            },
+            "title": {"ar": "ذروة - واتساب عائم", "en": "Therwa - WhatsApp"},
             "icon": "sicon-whatsapp",
             "path": "home.therwa-whatsapp",
-            "fields": [
-                {
-                    "type": "string",
-                    "label": "رقم الواتساب",
-                    "id": "whatsapp_number",
-                    "format": "text",
-                    "placeholder": "966512345678",
-                    "value": ""
-                },
-                {
-                    "type": "string",
-                    "label": "رسالة ترحيبية",
-                    "id": "whatsapp_message",
-                    "format": "text",
-                    "value": "مرحباً، أحتاج مساعدة..."
-                },
-                {
-                    "type": "items",
-                    "label": "مكان الزر",
-                    "id": "whatsapp_position",
-                    "format": "dropdown-list",
-                    "selected": [{"label": "يسار", "value": "left", "key": "left"}],
-                    "options": [{"label": "يسار", "value": "left", "key": "left"}, {"label": "يمين", "value": "right", "key": "right"}],
-                    "source": "Manual"
-                }
-            ]
+            "fields": []
         },
         {
             "key": "therwa-visitors-002",
-            "title": {
-                "ar": "ذروة - عداد الزوار",
-                "en": "Therwa - Live Visitors"
-            },
+            "title": {"ar": "ذروة - عداد الزوار", "en": "Therwa - Visitors"},
             "icon": "sicon-users",
             "path": "home.therwa-visitors",
-            "fields": [
-                {
-                    "type": "number",
-                    "label": "الحد الأدنى",
-                    "id": "visitors_min",
-                    "format": "integer",
-                    "value": 5
-                },
-                {
-                    "type": "number",
-                    "label": "الحد الأقصى",
-                    "id": "visitors_max",
-                    "format": "integer",
-                    "value": 25
-                }
-            ]
+            "fields": []
         },
         {
             "key": "therwa-trust-003",
-            "title": {
-                "ar": "ذروة - شارات الثقة",
-                "en": "Therwa - Trust Badges"
-            },
+            "title": {"ar": "ذروة - شارات الثقة", "en": "Therwa - Trust"},
             "icon": "sicon-shield-check",
             "path": "home.therwa-trust",
-            "fields": [
-                {
-                    "type": "string",
-                    "label": "نص الضمان",
-                    "id": "trust_guarantee",
-                    "format": "text",
-                    "value": "ضمان سنتين"
-                },
-                {
-                    "type": "string",
-                    "label": "نص الاسترجاع",
-                    "id": "trust_return",
-                    "format": "text",
-                    "value": "استرجاع 14 يوم"
-                },
-                {
-                    "type": "string",
-                    "label": "نص الدفع الآمن",
-                    "id": "trust_payment",
-                    "format": "text",
-                    "value": "دفع آمن 100%"
-                },
-                {
-                    "type": "string",
-                    "label": "نص الشحن",
-                    "id": "trust_shipping",
-                    "format": "text",
-                    "value": "شحن سريع"
-                }
-            ]
+            "fields": []
         },
         {
             "key": "therwa-stock-004",
-            "title": {
-                "ar": "ذروة - تنبيه الكمية",
-                "en": "Therwa - Stock Alert"
-            },
+            "title": {"ar": "ذروة - تنبيه الكمية", "en": "Therwa - Stock"},
             "icon": "sicon-box",
             "path": "home.therwa-stock",
-            "fields": [
-                {
-                    "type": "number",
-                    "label": "حد التنبيه",
-                    "id": "stock_threshold",
-                    "format": "integer",
-                    "value": 10
-                },
-                {
-                    "type": "string",
-                    "label": "نص التنبيه",
-                    "id": "stock_text",
-                    "format": "text",
-                    "value": "🔥 باقي {quantity} قطع فقط!"
-                }
-            ]
+            "fields": []
         },
         {
             "key": "therwa-countdown-005",
-            "title": {
-                "ar": "ذروة - عداد تنازلي",
-                "en": "Therwa - Countdown"
-            },
+            "title": {"ar": "ذروة - عداد تنازلي", "en": "Therwa - Countdown"},
             "icon": "sicon-clock",
             "path": "home.therwa-countdown",
-            "fields": [
-                {
-                    "type": "string",
-                    "label": "نص العداد",
-                    "id": "countdown_text",
-                    "format": "text",
-                    "value": "⚡ ينتهي العرض خلال:"
-                }
-            ]
+            "fields": []
         },
         {
             "key": "therwa-shipping-006",
-            "title": {
-                "ar": "ذروة - شريط الشحن المجاني",
-                "en": "Therwa - Free Shipping Bar"
-            },
+            "title": {"ar": "ذروة - شريط الشحن", "en": "Therwa - Shipping"},
             "icon": "sicon-shipping-fast",
             "path": "home.therwa-shipping",
-            "fields": [
-                {
-                    "type": "number",
-                    "label": "مبلغ الشحن المجاني",
-                    "id": "shipping_amount",
-                    "format": "integer",
-                    "value": 200
-                },
-                {
-                    "type": "string",
-                    "label": "نص قبل الوصول",
-                    "id": "shipping_text_before",
-                    "format": "text",
-                    "value": "أضف {amount} ر.س للشحن المجاني! 🚚"
-                },
-                {
-                    "type": "string",
-                    "label": "نص بعد الوصول",
-                    "id": "shipping_text_after",
-                    "format": "text",
-                    "value": "🎉 مبروك! شحن مجاني!"
-                }
-            ]
+            "fields": []
         },
         {
             "key": "186b3f4f-25cf-4d3c-abca-cef7eed6f0ab",
