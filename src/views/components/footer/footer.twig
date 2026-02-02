@@ -1,36 +1,35 @@
 {# ===== Footer - يتبع لون الهوية ===== #}
-<footer class="site-footer" style="background-color: {{ theme.color.primary }}; color: {{ theme.color.reverse_text }};">
+<footer class="site-footer" style="background-color: var(--color-primary);">
     <div class="container py-12">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
             {# Store Info #}
             <div class="footer-section">
                 <div class="flex items-center gap-3 mb-4">
-                    <img src="{{ store.logo|cdn(100) }}" alt="{{ store.name }}" class="h-12 w-12 object-contain rounded-lg p-1" style="background-color: rgba(255,255,255,0.1);">
+                    <img src="{{ store.logo|cdn(100) }}" alt="{{ store.name }}" class="h-12 w-12 object-contain rounded-lg p-1 bg-white/10">
                     <div>
-                        <h4 class="font-bold text-lg" style="color: {{ theme.color.reverse_text }};">{{ store.name }}</h4>
+                        <h4 class="font-bold text-lg text-white">{{ store.name }}</h4>
                         {% if store.description %}
-                        <p style="font-size: 11px; color: {{ theme.color.lighter(0.3) }};">{{ store.description|slice(0,40) }}</p>
+                        <p class="text-xs text-white/60">{{ store.description|slice(0,40) }}</p>
                         {% endif %}
                     </div>
                 </div>
-                <p class="text-sm leading-relaxed mb-4" style="color: rgba(255,255,255,0.7);">
+                <p class="text-sm leading-relaxed mb-4 text-white/70">
                     {{ store.description|default('متجرك الموثوق للمنتجات عالية الجودة') }}
                 </p>
-                {# Social Icons #}
                 <div class="flex items-center gap-3">
                     {% if store.social.instagram %}
-                    <a href="{{ store.social.instagram }}" target="_blank" class="w-9 h-9 rounded-full flex items-center justify-center transition-opacity hover:opacity-80" style="background-color: rgba(255,255,255,0.1); color: {{ theme.color.reverse_text }};">
+                    <a href="{{ store.social.instagram }}" target="_blank" class="w-9 h-9 rounded-full flex items-center justify-center bg-white/10 text-white hover:bg-white/20 transition">
                         <i class="sicon-instagram"></i>
                     </a>
                     {% endif %}
                     {% if store.social.twitter %}
-                    <a href="{{ store.social.twitter }}" target="_blank" class="w-9 h-9 rounded-full flex items-center justify-center transition-opacity hover:opacity-80" style="background-color: rgba(255,255,255,0.1); color: {{ theme.color.reverse_text }};">
+                    <a href="{{ store.social.twitter }}" target="_blank" class="w-9 h-9 rounded-full flex items-center justify-center bg-white/10 text-white hover:bg-white/20 transition">
                         <i class="sicon-twitter"></i>
                     </a>
                     {% endif %}
                     {% if store.social.youtube %}
-                    <a href="{{ store.social.youtube }}" target="_blank" class="w-9 h-9 rounded-full flex items-center justify-center transition-opacity hover:opacity-80" style="background-color: rgba(255,255,255,0.1); color: {{ theme.color.reverse_text }};">
+                    <a href="{{ store.social.youtube }}" target="_blank" class="w-9 h-9 rounded-full flex items-center justify-center bg-white/10 text-white hover:bg-white/20 transition">
                         <i class="sicon-youtube"></i>
                     </a>
                     {% endif %}
@@ -39,13 +38,11 @@
             
             {# Quick Links #}
             <div class="footer-section">
-                <h4 class="font-bold text-base mb-4" style="color: {{ theme.color.reverse_text }};">مجموعاتك</h4>
+                <h4 class="font-bold text-base mb-4 text-white">مجموعاتك</h4>
                 <ul class="space-y-2">
                     {% for category in categories|slice(0,5) %}
                     <li>
-                        <a href="{{ category.url }}" class="text-sm hover:opacity-80 transition-opacity" style="color: rgba(255,255,255,0.7);">
-                            {{ category.name }}
-                        </a>
+                        <a href="{{ category.url }}" class="text-sm text-white/70 hover:text-white transition">{{ category.name }}</a>
                     </li>
                     {% endfor %}
                 </ul>
@@ -53,35 +50,35 @@
             
             {# Important Pages #}
             <div class="footer-section">
-                <h4 class="font-bold text-base mb-4" style="color: {{ theme.color.reverse_text }};">الشركة والدعم</h4>
+                <h4 class="font-bold text-base mb-4 text-white">الشركة والدعم</h4>
                 <ul class="space-y-2">
-                    <li><a href="/privacy-policy" class="text-sm hover:opacity-80 transition-opacity" style="color: rgba(255,255,255,0.7);">سياسة الخصوصية</a></li>
-                    <li><a href="/terms" class="text-sm hover:opacity-80 transition-opacity" style="color: rgba(255,255,255,0.7);">الشروط والأحكام</a></li>
-                    <li><a href="/return-policy" class="text-sm hover:opacity-80 transition-opacity" style="color: rgba(255,255,255,0.7);">سياسة الاسترجاع</a></li>
-                    <li><a href="/contact" class="text-sm hover:opacity-80 transition-opacity" style="color: rgba(255,255,255,0.7);">اتصل بنا</a></li>
+                    <li><a href="/privacy-policy" class="text-sm text-white/70 hover:text-white transition">سياسة الخصوصية</a></li>
+                    <li><a href="/terms" class="text-sm text-white/70 hover:text-white transition">الشروط والأحكام</a></li>
+                    <li><a href="/return-policy" class="text-sm text-white/70 hover:text-white transition">سياسة الاسترجاع</a></li>
+                    <li><a href="/contact" class="text-sm text-white/70 hover:text-white transition">اتصل بنا</a></li>
                 </ul>
             </div>
             
             {# Contact Info #}
             <div class="footer-section">
-                <h4 class="font-bold text-base mb-4" style="color: {{ theme.color.reverse_text }};">بيانات المتجر</h4>
+                <h4 class="font-bold text-base mb-4 text-white">بيانات المتجر</h4>
                 <ul class="space-y-3">
                     {% if store.contacts.phone %}
                     <li class="flex items-center gap-2">
-                        <i class="sicon-phone text-sm" style="color: {{ theme.color.lighter(0.2) }};"></i>
-                        <a href="tel:{{ store.contacts.phone }}" class="text-sm" style="color: rgba(255,255,255,0.7);">{{ store.contacts.phone }}</a>
+                        <i class="sicon-phone text-sm text-white/50"></i>
+                        <a href="tel:{{ store.contacts.phone }}" class="text-sm text-white/70 hover:text-white transition">{{ store.contacts.phone }}</a>
                     </li>
                     {% endif %}
                     {% if store.contacts.email %}
                     <li class="flex items-center gap-2">
-                        <i class="sicon-mail text-sm" style="color: {{ theme.color.lighter(0.2) }};"></i>
-                        <a href="mailto:{{ store.contacts.email }}" class="text-sm" style="color: rgba(255,255,255,0.7);">{{ store.contacts.email }}</a>
+                        <i class="sicon-mail text-sm text-white/50"></i>
+                        <a href="mailto:{{ store.contacts.email }}" class="text-sm text-white/70 hover:text-white transition">{{ store.contacts.email }}</a>
                     </li>
                     {% endif %}
                     {% if store.contacts.whatsapp %}
                     <li class="flex items-center gap-2">
-                        <i class="sicon-whatsapp text-sm" style="color: {{ theme.color.lighter(0.2) }};"></i>
-                        <a href="https://wa.me/{{ store.contacts.whatsapp }}" class="text-sm" style="color: rgba(255,255,255,0.7);">{{ store.contacts.whatsapp }}</a>
+                        <i class="sicon-whatsapp text-sm text-white/50"></i>
+                        <a href="https://wa.me/{{ store.contacts.whatsapp }}" class="text-sm text-white/70 hover:text-white transition">{{ store.contacts.whatsapp }}</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -91,14 +88,14 @@
     </div>
     
     {# Bottom Bar #}
-    <div style="background-color: {{ theme.color.darker(0.1) }}; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div class="bg-black/20 border-t border-white/10">
         <div class="container py-4">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-sm" style="color: rgba(255,255,255,0.6);">
+                <p class="text-sm text-white/60">
                     © {{ "now"|date("Y") }} {{ store.name }} - جميع الحقوق محفوظة
                 </p>
                 <div class="flex items-center gap-2">
-                    <span class="text-xs" style="color: rgba(255,255,255,0.5);">صُنع بإتقان على</span>
+                    <span class="text-xs text-white/50">صُنع بإتقان على</span>
                     <img src="https://cdn.salla.network/images/logo/logo-light.png" alt="Salla" class="h-5">
                 </div>
             </div>
