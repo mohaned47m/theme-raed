@@ -1,0 +1,399 @@
+{# =============================================
+   ذروة Theme - CRO Features Components
+   ============================================= #}
+
+{# ===== 1. WhatsApp Floating Button ===== #}
+{% if theme.settings.get('enable_whatsapp_button') %}
+{% set wa_number = theme.settings.get('whatsapp_number', store.contacts.whatsapp) %}
+{% set wa_message = theme.settings.get('whatsapp_message', 'مرحباً، أحتاج مساعدة...') %}
+{% set wa_position = theme.settings.get('whatsapp_position')[0].value | default('left') %}
+
+<a href="https://wa.me/{{ wa_number }}?text={{ wa_message | url_encode }}" 
+   target="_blank"
+   class="whatsapp-float whatsapp-{{ wa_position }}"
+   aria-label="تواصل واتساب">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="whatsapp-tooltip">تواصل معنا</span>
+</a>
+
+<style>
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    animation: pulse-wa 2s infinite;
+}
+
+.whatsapp-left { left: 25px; }
+.whatsapp-right { right: 25px; }
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-tooltip {
+    position: absolute;
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.whatsapp-left .whatsapp-tooltip { left: 70px; }
+.whatsapp-right .whatsapp-tooltip { right: 70px; }
+
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+}
+
+@keyframes pulse-wa {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+</style>
+{% endif %}
+
+
+{# ===== 2. Live Visitors Counter (للصفحة المنتج) ===== #}
+{% if theme.settings.get('enable_live_visitors') and is_page('product') %}
+{% set min_visitors = theme.settings.get('visitors_min', 5) %}
+{% set max_visitors = theme.settings.get('visitors_max', 25) %}
+
+<div class="live-visitors-counter" id="liveVisitors">
+    <span class="live-dot"></span>
+    <i class="sicon-users"></i>
+    <span class="visitors-count" id="visitorsCount">{{ min_visitors }}</span>
+    <span>شخص يشاهدون هذا المنتج الآن</span>
+</div>
+
+<style>
+.live-visitors-counter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+    border: 1px solid #feb2b2;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #c53030;
+    margin: 15px 0;
+    animation: fadeInUp 0.5s ease;
+}
+
+.live-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #e53e3e;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.visitors-count {
+    font-weight: 700;
+    font-size: 16px;
+}
+</style>
+
+<script>
+(function() {
+    const min = {{ min_visitors }};
+    const max = {{ max_visitors }};
+    const countEl = document.getElementById('visitorsCount');
+    
+    function updateCount() {
+        const current = parseInt(countEl.textContent);
+        const change = Math.random() > 0.5 ? 1 : -1;
+        let newCount = current + change;
+        newCount = Math.max(min, Math.min(max, newCount));
+        
+        countEl.style.transform = 'scale(1.2)';
+        countEl.textContent = newCount;
+        setTimeout(() => countEl.style.transform = 'scale(1)', 200);
+    }
+    
+    setInterval(updateCount, 3000 + Math.random() * 4000);
+})();
+</script>
+{% endif %}
+
+
+{# ===== 3. Stock Alert (تنبيه الكمية) ===== #}
+{% if theme.settings.get('enable_stock_alert') and is_page('product') %}
+{% set threshold = theme.settings.get('stock_alert_threshold', 10) %}
+{% set alert_text = theme.settings.get('stock_alert_text', '🔥 باقي {quantity} قطع فقط!') %}
+
+{% if product.quantity is defined and product.quantity <= threshold and product.quantity > 0 %}
+<div class="stock-alert">
+    {{ alert_text | replace('{quantity}', product.quantity) }}
+</div>
+
+<style>
+.stock-alert {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 1px solid #f59e0b;
+    color: #92400e;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 15px 0;
+    animation: shake 0.5s ease, fadeIn 0.3s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+</style>
+{% endif %}
+{% endif %}
+
+
+{# ===== 4. Trust Badges ===== #}
+{% if theme.settings.get('enable_trust_badges') and is_page('product') %}
+<div class="trust-badges">
+    <div class="trust-badge">
+        <i class="sicon-shield-check"></i>
+        <span>{{ theme.settings.get('trust_guarantee_text', 'ضمان سنتين') }}</span>
+    </div>
+    <div class="trust-badge">
+        <i class="sicon-return"></i>
+        <span>{{ theme.settings.get('trust_return_text', 'استرجاع خلال 14 يوم') }}</span>
+    </div>
+    <div class="trust-badge">
+        <i class="sicon-lock"></i>
+        <span>{{ theme.settings.get('trust_payment_text', 'دفع آمن 100%') }}</span>
+    </div>
+    <div class="trust-badge">
+        <i class="sicon-shipping-fast"></i>
+        <span>{{ theme.settings.get('trust_shipping_text', 'شحن سريع') }}</span>
+    </div>
+</div>
+
+<style>
+.trust-badges {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 12px;
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #475569;
+}
+
+.trust-badge i {
+    font-size: 20px;
+    color: var(--color-primary);
+}
+
+@media (max-width: 640px) {
+    .trust-badges {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endif %}
+
+
+{# ===== 5. Free Shipping Bar ===== #}
+{% if theme.settings.get('enable_free_shipping_bar') %}
+{% set free_ship_amount = theme.settings.get('free_shipping_amount', 200) %}
+{% set text_before = theme.settings.get('free_shipping_text_before', 'أضف {amount} ر.س للحصول على شحن مجاني! 🚚') %}
+{% set text_after = theme.settings.get('free_shipping_text_after', '🎉 مبروك! حصلت على شحن مجاني!') %}
+
+<div class="free-shipping-bar" id="freeShippingBar" data-threshold="{{ free_ship_amount }}">
+    <div class="shipping-progress-container">
+        <div class="shipping-progress-bar" id="shippingProgress"></div>
+    </div>
+    <p class="shipping-text" id="shippingText">{{ text_before | replace('{amount}', free_ship_amount) }}</p>
+</div>
+
+<style>
+.free-shipping-bar {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border: 1px solid #3b82f6;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin: 15px 0;
+}
+
+.shipping-progress-container {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.shipping-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.shipping-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e40af;
+    text-align: center;
+    margin: 0;
+}
+
+.free-shipping-bar.complete {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-color: #10b981;
+}
+
+.free-shipping-bar.complete .shipping-text {
+    color: #047857;
+}
+
+.free-shipping-bar.complete .shipping-progress-bar {
+    background: linear-gradient(90deg, #10b981, #059669);
+}
+</style>
+{% endif %}
+
+
+{# ===== 6. Countdown Timer (للعروض) ===== #}
+{% if theme.settings.get('enable_countdown_timer') and is_page('product') and product.sale_price %}
+{% set countdown_text = theme.settings.get('countdown_text', '⚡ ينتهي العرض خلال:') %}
+
+<div class="countdown-timer" id="countdownTimer">
+    <p class="countdown-label">{{ countdown_text }}</p>
+    <div class="countdown-boxes">
+        <div class="countdown-box">
+            <span id="countdown-days">00</span>
+            <small>يوم</small>
+        </div>
+        <div class="countdown-box">
+            <span id="countdown-hours">00</span>
+            <small>ساعة</small>
+        </div>
+        <div class="countdown-box">
+            <span id="countdown-mins">00</span>
+            <small>دقيقة</small>
+        </div>
+        <div class="countdown-box">
+            <span id="countdown-secs">00</span>
+            <small>ثانية</small>
+        </div>
+    </div>
+</div>
+
+<style>
+.countdown-timer {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 2px solid #f59e0b;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.countdown-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #92400e;
+    margin-bottom: 10px;
+}
+
+.countdown-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.countdown-box {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    min-width: 60px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.countdown-box span {
+    display: block;
+    font-size: 24px;
+    font-weight: 900;
+    color: #dc2626;
+}
+
+.countdown-box small {
+    font-size: 11px;
+    color: #666;
+}
+</style>
+
+<script>
+(function() {
+    // Set end date to 3 days from now (or use product.sale_end if available)
+    const endDate = new Date();
+    endDate.setDate(endDate.getDate() + 3);
+    
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endDate - now;
+        
+        if (distance < 0) {
+            document.getElementById('countdownTimer').style.display = 'none';
+            return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('countdown-mins').textContent = mins.toString().padStart(2, '0');
+        document.getElementById('countdown-secs').textContent = secs.toString().padStart(2, '0');
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+})();
+</script>
+{% endif %}
