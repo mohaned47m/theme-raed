@@ -28,25 +28,44 @@
         {
             "type": "static",
             "format": "title",
-            "id": "header-colors-title",
-            "value": "<div class='rounded-lg' style='background-color: #1a1a2e; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>🎨 ألوان الهيدر</h6></div>",
+            "id": "topbar-colors-title",
+            "value": "<div class='rounded-lg' style='background-color: #4a5568; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>📢 الشريط العلوي</h6></div>",
             "variant": "h6"
         },
         {
             "type": "string",
             "icon": "sicon-paint-brush",
-            "label": "لون خلفية الهيدر",
-            "description": "اختر لون خلفية الهيدر",
-            "id": "header_bg_color",
+            "label": "لون خلفية الشريط العلوي",
+            "id": "topbar_bg_color",
             "format": "color",
             "required": false,
-            "value": "#2F2824"
+            "value": "#1a1a1a"
+        },
+        {
+            "type": "string",
+            "icon": "sicon-paint-brush",
+            "label": "لون نص الشريط العلوي",
+            "id": "topbar_text_color",
+            "format": "color",
+            "required": false,
+            "value": "#94a3b8"
+        },
+        {
+            "type": "static",
+            "id": "static-line-topbar",
+            "format": "line"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "header-colors-title",
+            "value": "<div class='rounded-lg' style='background-color: #2d3748; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>🎨 ألوان الهيدر (الخلفية = لون الهوية)</h6></div>",
+            "variant": "h6"
         },
         {
             "type": "string",
             "icon": "sicon-paint-brush",
             "label": "لون نص الهيدر",
-            "description": "اختر لون النصوص في الهيدر",
             "id": "header_text_color",
             "format": "color",
             "required": false,
@@ -56,7 +75,6 @@
             "type": "string",
             "icon": "sicon-paint-brush",
             "label": "لون الأيقونات",
-            "description": "اختر لون الأيقونات في الهيدر",
             "id": "header_icon_color",
             "format": "color",
             "required": false,
@@ -66,7 +84,6 @@
             "type": "string",
             "icon": "sicon-paint-brush",
             "label": "لون خلفية الأيقونات",
-            "description": "اختر لون خلفية الأيقونات",
             "id": "header_icon_bg_color",
             "format": "color",
             "required": false,
@@ -81,25 +98,23 @@
             "type": "static",
             "format": "title",
             "id": "footer-colors-title",
-            "value": "<div class='rounded-lg' style='background-color: #1a1a2e; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>🎨 ألوان الفوتر</h6></div>",
+            "value": "<div class='rounded-lg' style='background-color: #2d3748; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>🎨 ألوان الفوتر (الخلفية = لون الهوية)</h6></div>",
             "variant": "h6"
         },
         {
             "type": "string",
             "icon": "sicon-paint-brush",
-            "label": "لون خلفية الفوتر",
-            "description": "اختر لون خلفية الفوتر",
-            "id": "footer_bg_color",
+            "label": "لون نص الفوتر",
+            "id": "footer_text_color",
             "format": "color",
             "required": false,
-            "value": "#2F2824"
+            "value": "#FFFFFF"
         },
         {
             "type": "string",
             "icon": "sicon-paint-brush",
-            "label": "لون نص الفوتر",
-            "description": "اختر لون النصوص في الفوتر",
-            "id": "footer_text_color",
+            "label": "لون أيقونات الفوتر",
+            "id": "footer_icon_color",
             "format": "color",
             "required": false,
             "value": "#FFFFFF"
@@ -113,21 +128,13 @@
             "type": "static",
             "format": "title",
             "id": "cro-features-title",
-            "value": "<div class='rounded-lg' style='background-color: #87602C; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>🚀 مميزات تحسين المبيعات (CRO)</h6></div>",
-            "variant": "h6"
-        },
-        {
-            "type": "static",
-            "format": "title",
-            "id": "whatsapp-section-title",
-            "value": "<div style='background-color: #25D366; color: white; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px;'><strong>💬 زر الواتساب العائم</strong></div>",
+            "value": "<div class='rounded-lg' style='background-color: #87602C; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>🚀 مميزات CRO</h6></div>",
             "variant": "h6"
         },
         {
             "type": "boolean",
             "icon": "sicon-whatsapp",
             "label": "تفعيل زر الواتساب العائم",
-            "description": "عرض زر واتساب عائم للتواصل السريع مع العملاء",
             "id": "enable_whatsapp_button",
             "format": "switch",
             "required": false,
@@ -142,87 +149,13 @@
             "format": "text",
             "required": false,
             "placeholder": "966512345678",
-            "description": "أدخل الرقم بدون + أو 00",
             "value": "",
-            "conditions": [
-                {
-                    "id": "enable_whatsapp_button",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "type": "string",
-            "icon": "sicon-chat-bubble",
-            "label": "رسالة ترحيبية",
-            "id": "whatsapp_message",
-            "format": "text",
-            "required": false,
-            "placeholder": "مرحباً، أحتاج مساعدة...",
-            "description": "الرسالة الافتراضية عند فتح المحادثة",
-            "value": "مرحباً، أحتاج مساعدة بخصوص...",
-            "multilanguage": true,
-            "conditions": [
-                {
-                    "id": "enable_whatsapp_button",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "id": "whatsapp_position",
-            "type": "items",
-            "format": "dropdown-list",
-            "label": "مكان الزر",
-            "icon": "sicon-layout",
-            "selected": [
-                {
-                    "label": "يسار الشاشة",
-                    "value": "left",
-                    "key": "pos-left"
-                }
-            ],
-            "options": [
-                {
-                    "label": "يسار الشاشة",
-                    "value": "left",
-                    "key": "pos-left"
-                },
-                {
-                    "label": "يمين الشاشة",
-                    "value": "right",
-                    "key": "pos-right"
-                }
-            ],
-            "source": "Manual",
-            "required": false,
-            "conditions": [
-                {
-                    "id": "enable_whatsapp_button",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "type": "static",
-            "id": "static-line-wa",
-            "format": "line"
-        },
-        {
-            "type": "static",
-            "format": "title",
-            "id": "visitors-section-title",
-            "value": "<div style='background-color: #E74C3C; color: white; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px;'><strong>👥 عداد الزوار اللايف</strong></div>",
-            "variant": "h6"
+            "conditions": [{"id": "enable_whatsapp_button", "operation": "=", "value": true}]
         },
         {
             "type": "boolean",
             "icon": "sicon-users",
             "label": "تفعيل عداد الزوار",
-            "description": "عرض عدد الأشخاص الذين يشاهدون المنتج الآن (Social Proof)",
             "id": "enable_live_visitors",
             "format": "switch",
             "required": false,
@@ -230,58 +163,9 @@
             "selected": true
         },
         {
-            "type": "number",
-            "icon": "sicon-sort-numeric-down",
-            "label": "الحد الأدنى للعدد",
-            "id": "visitors_min",
-            "format": "integer",
-            "required": false,
-            "value": 5,
-            "minimum": 1,
-            "maximum": 50,
-            "conditions": [
-                {
-                    "id": "enable_live_visitors",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "type": "number",
-            "icon": "sicon-sort-numeric-up",
-            "label": "الحد الأقصى للعدد",
-            "id": "visitors_max",
-            "format": "integer",
-            "required": false,
-            "value": 25,
-            "minimum": 5,
-            "maximum": 100,
-            "conditions": [
-                {
-                    "id": "enable_live_visitors",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "type": "static",
-            "id": "static-line-visitors",
-            "format": "line"
-        },
-        {
-            "type": "static",
-            "format": "title",
-            "id": "trust-section-title",
-            "value": "<div style='background-color: #27AE60; color: white; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px;'><strong>🛡️ شارات الثقة</strong></div>",
-            "variant": "h6"
-        },
-        {
             "type": "boolean",
             "icon": "sicon-shield-check",
             "label": "تفعيل شارات الثقة",
-            "description": "عرض شارات الثقة في صفحة المنتج (Trust Badges)",
             "id": "enable_trust_badges",
             "format": "switch",
             "required": false,
@@ -289,90 +173,9 @@
             "selected": true
         },
         {
-            "type": "string",
-            "icon": "sicon-shield-check",
-            "label": "نص الضمان",
-            "id": "trust_guarantee_text",
-            "format": "text",
-            "required": false,
-            "value": "ضمان سنتين",
-            "multilanguage": true,
-            "conditions": [
-                {
-                    "id": "enable_trust_badges",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "type": "string",
-            "icon": "sicon-return",
-            "label": "نص الاسترجاع",
-            "id": "trust_return_text",
-            "format": "text",
-            "required": false,
-            "value": "استرجاع خلال 14 يوم",
-            "multilanguage": true,
-            "conditions": [
-                {
-                    "id": "enable_trust_badges",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "type": "string",
-            "icon": "sicon-lock",
-            "label": "نص الدفع الآمن",
-            "id": "trust_payment_text",
-            "format": "text",
-            "required": false,
-            "value": "دفع آمن 100%",
-            "multilanguage": true,
-            "conditions": [
-                {
-                    "id": "enable_trust_badges",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "type": "string",
-            "icon": "sicon-shipping-fast",
-            "label": "نص الشحن",
-            "id": "trust_shipping_text",
-            "format": "text",
-            "required": false,
-            "value": "شحن سريع",
-            "multilanguage": true,
-            "conditions": [
-                {
-                    "id": "enable_trust_badges",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "type": "static",
-            "id": "static-line-trust",
-            "format": "line"
-        },
-        {
-            "type": "static",
-            "format": "title",
-            "id": "stock-section-title",
-            "value": "<div style='background-color: #E67E22; color: white; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px;'><strong>📦 تنبيه الكمية المحدودة</strong></div>",
-            "variant": "h6"
-        },
-        {
             "type": "boolean",
             "icon": "sicon-box",
-            "label": "تفعيل تنبيه الكمية",
-            "description": "يظهر تنبيه عند انخفاض الكمية (Scarcity)",
+            "label": "تفعيل تنبيه الكمية المحدودة",
             "id": "enable_stock_alert",
             "format": "switch",
             "required": false,
@@ -380,56 +183,20 @@
             "selected": true
         },
         {
-            "type": "number",
-            "icon": "sicon-sort-numeric-down",
-            "label": "الحد الأقصى للتنبيه",
-            "id": "stock_alert_threshold",
-            "format": "integer",
-            "required": false,
-            "value": 10,
-            "minimum": 1,
-            "maximum": 50,
-            "description": "يظهر التنبيه إذا كانت الكمية أقل من هذا الرقم",
-            "conditions": [
-                {
-                    "id": "enable_stock_alert",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "type": "string",
-            "icon": "sicon-format-text-alt",
-            "label": "نص التنبيه",
-            "id": "stock_alert_text",
-            "format": "text",
-            "required": false,
-            "value": "🔥 باقي {quantity} قطع فقط!",
-            "multilanguage": true,
-            "conditions": [
-                {
-                    "id": "enable_stock_alert",
-                    "operation": "=",
-                    "value": true
-                }
-            ]
-        },
-        {
             "type": "static",
-            "id": "static-line-stock",
+            "id": "static-line-cro",
             "format": "line"
         },
         {
             "type": "static",
             "format": "title",
             "id": "static-label2",
-            "value": "<div class='rounded-lg' style='background-color: #21636d; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'> خيارات أعلى الصفحة</h6></div>",
+            "value": "<div class='rounded-lg' style='background-color: #21636d; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>⚙️ خيارات عامة</h6></div>",
             "variant": "h6"
         },
         {
             "id": "header_is_sticky",
-            "label": "تثبت القائمة الرئيسية أعلى الصفحة عند التمرير لأسفل",
+            "label": "تثبيت القائمة أعلى الصفحة",
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "format": "switch",
@@ -440,8 +207,8 @@
         {
             "type": "boolean",
             "icon": "sicon-toggle-off",
-            "label": "شريط علوي داكن",
-            "id": "topnav_is_dark",
+            "label": "عرض الشريط العلوي",
+            "id": "show_topbar",
             "format": "switch",
             "required": false,
             "value": true,
@@ -450,17 +217,7 @@
         {
             "type": "boolean",
             "icon": "sicon-toggle-off",
-            "label": "عرض روابط الصفحات الهامة في الشريط العلوي",
-            "id": "important_links",
-            "format": "switch",
-            "required": false,
-            "value": true,
-            "selected": true
-        },
-        {
-            "type": "boolean",
-            "icon": "sicon-toggle-off",
-            "label": "تفعيل قائمة المزيد في القائمة الرئيسية",
+            "label": "تفعيل قائمة المزيد",
             "id": "enable_more_menu",
             "format": "switch",
             "required": false,
@@ -468,43 +225,9 @@
             "selected": true
         },
         {
-            "type": "static",
-            "id": "static-line3",
-            "format": "line"
-        },
-        {
-            "type": "static",
-            "format": "title",
-            "id": "static-label4",
-            "value": "<div class='rounded-lg' style='background-color: #21636d; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'> خيارات أسفل الصفحة</h6></div>",
-            "variant": "h6"
-        },
-        {
             "type": "boolean",
             "icon": "sicon-toggle-off",
-            "label": "الوضع الداكن للفوتر",
-            "id": "footer_is_dark",
-            "format": "switch",
-            "required": false,
-            "value": true,
-            "selected": true
-        },
-        {
-            "type": "static",
-            "id": "static-line5",
-            "format": "line"
-        },
-        {
-            "type": "static",
-            "format": "title",
-            "id": "static-label6",
-            "value": "<div class='rounded-lg' style='background-color: #21636d; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'> خيارات صفحة المنتج</h6></div>",
-            "variant": "h6"
-        },
-        {
-            "type": "boolean",
-            "icon": "sicon-toggle-off",
-            "label": "تفعيل إشعار الإضافة للسلة المحسن",
+            "label": "تفعيل إشعار الإضافة للسلة",
             "id": "enable_add_product_toast",
             "format": "switch",
             "required": false,
@@ -514,7 +237,7 @@
         {
             "type": "boolean",
             "icon": "sicon-toggle-off",
-            "label": "تثبيت زر الإضافة والكمية أسفل شاشة الجوال",
+            "label": "تثبيت زر الإضافة للسلة (جوال)",
             "id": "sticky_add_to_cart",
             "format": "switch",
             "required": false,
@@ -522,89 +245,70 @@
             "selected": true
         },
         {
+            "id": "topnav_is_dark",
             "type": "boolean",
-            "icon": "sicon-toggle-off",
-            "label": "اظهار الوسوم",
-            "id": "show_tags",
             "format": "switch",
-            "required": false,
             "value": true,
-            "selected": true
+            "selected": true,
+            "label": "شريط علوي داكن",
+            "required": false
+        },
+        {
+            "id": "footer_is_dark",
+            "type": "boolean",
+            "format": "switch",
+            "value": true,
+            "selected": true,
+            "label": "فوتر داكن",
+            "required": false
+        },
+        {
+            "id": "important_links",
+            "type": "boolean",
+            "format": "switch",
+            "value": true,
+            "selected": true,
+            "label": "روابط الصفحات الهامة",
+            "required": false
+        },
+        {
+            "id": "show_tags",
+            "type": "boolean",
+            "format": "switch",
+            "value": true,
+            "selected": true,
+            "label": "اظهار الوسوم",
+            "required": false
+        },
+        {
+            "id": "imageZoom",
+            "type": "boolean",
+            "format": "switch",
+            "value": false,
+            "selected": false,
+            "label": "تكبير صور المنتج",
+            "required": false
         },
         {
             "id": "slider_background_size",
             "type": "items",
             "format": "dropdown-list",
-            "label": "طريقة عرض الصور في سليدر صور المنتج",
+            "label": "طريقة عرض صور المنتج",
             "icon": "sicon-list",
-            "selected": [
-                {
-                    "label": "اظهار الصورة كاملةً في المنتصف (Contain)",
-                    "value": "contain",
-                    "key": "f4adec13-6e4c-433b-b141-b2807935ced9"
-                }
-            ],
+            "selected": [{"label": "Contain", "value": "contain", "key": "contain-key"}],
             "options": [
-                {
-                    "label": "تغطية الصورة كامل المساحة (Cover)",
-                    "value": "cover",
-                    "key": "e9c8ea8f-c5c6-438e-9d45-3bce269afde4"
-                },
-                {
-                    "label": "اظهار الصورة كاملةً في المنتصف (Contain)",
-                    "value": "contain",
-                    "key": "f4adec13-6e4c-433b-b141-b2807935ced9"
-                }
+                {"label": "Cover", "value": "cover", "key": "cover-key"},
+                {"label": "Contain", "value": "contain", "key": "contain-key"}
             ],
             "source": "Manual",
             "required": true
-        },
-        {
-            "type": "boolean",
-            "icon": "sicon-toggle-off",
-            "label": "تكبير الصور في سليدر صور المنتج",
-            "id": "imageZoom",
-            "format": "switch",
-            "required": false,
-            "value": false,
-            "selected": false
         }
     ],
     "components": [
-        {
-            "key": "186b3f4f-25cf-4d3c-abca-cef7eed6f0ab",
-            "title": {
-                "en": "Enhances Animated Images",
-                "ar": "صور متحركة (محسنة)"
-            },
-            "icon": "sicon-image-carousel",
-            "path": "home.enhanced-slider",
-            "fields": []
-        },
-        {
-            "key": "2b1b130b-5b37-422a-9683-e0fd367460c0",
-            "title": {
-                "en": "Quick Links",
-                "ar": "روابط سريعة"
-            },
-            "icon": "sicon-layout-grid-rearrange",
-            "path": "home.main-links",
-            "fields": []
-        },
-        {
-            "key": "541cc423-90c7-4230-8a33-a0342cfde4ad",
-            "title": {
-                "en": "Custom testimonials",
-                "ar": "آراء عملاء مخصصة"
-            },
-            "icon": "sicon-chat-bubbles",
-            "path": "home.custom-testimonials",
-            "fields": []
-        }
+        {"key": "186b3f4f-25cf-4d3c-abca-cef7eed6f0ab", "title": {"en": "Animated Images", "ar": "صور متحركة"}, "icon": "sicon-image-carousel", "path": "home.enhanced-slider", "fields": []},
+        {"key": "2b1b130b-5b37-422a-9683-e0fd367460c0", "title": {"en": "Quick Links", "ar": "روابط سريعة"}, "icon": "sicon-layout-grid-rearrange", "path": "home.main-links", "fields": []},
+        {"key": "541cc423-90c7-4230-8a33-a0342cfde4ad", "title": {"en": "Testimonials", "ar": "آراء العملاء"}, "icon": "sicon-chat-bubbles", "path": "home.custom-testimonials", "fields": []}
     ],
     "support_url": "https://salla.com/",
-    "description": {
-        "ar": "ثيم ذروة - مُحسّن لزيادة المبيعات مع أدوات CRO متقدمة",
-        "en": "Therwa Theme - Optimized for conversions with advanced CRO tools"
-    }
+    "description": {"ar": "ثيم ذروة - مُحسّن لزيادة المبيعات", "en": "Therwa Theme - Optimized for conversions"}
 }
