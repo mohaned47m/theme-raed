@@ -39,7 +39,13 @@
             "format": "text",
             "placeholder": "966512345678",
             "value": "",
-            "conditions": [{"id": "enable_whatsapp", "operation": "=", "value": true}]
+            "conditions": [
+                {
+                    "id": "enable_whatsapp",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
         },
         {
             "type": "string",
@@ -47,19 +53,52 @@
             "id": "whatsapp_message",
             "format": "text",
             "value": "مرحباً، أحتاج مساعدة...",
-            "conditions": [{"id": "enable_whatsapp", "operation": "=", "value": true}]
+            "conditions": [
+                {
+                    "id": "enable_whatsapp",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
         },
         {
             "type": "items",
             "label": "مكان زر الواتساب",
             "id": "whatsapp_position",
             "format": "dropdown-list",
-            "selected": [{"label": "يسار", "value": "left", "key": "left"}],
-            "options": [{"label": "يسار", "value": "left", "key": "left"}, {"label": "يمين", "value": "right", "key": "right"}],
+            "selected": [
+                {
+                    "label": "يسار",
+                    "value": "left",
+                    "key": "left"
+                }
+            ],
+            "options": [
+                {
+                    "label": "يسار",
+                    "value": "left",
+                    "key": "left"
+                },
+                {
+                    "label": "يمين",
+                    "value": "right",
+                    "key": "right"
+                }
+            ],
             "source": "Manual",
-            "conditions": [{"id": "enable_whatsapp", "operation": "=", "value": true}]
+            "conditions": [
+                {
+                    "id": "enable_whatsapp",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
         },
-        {"type": "static", "id": "line1", "format": "line"},
+        {
+            "type": "static",
+            "id": "line1",
+            "format": "line"
+        },
         {
             "type": "boolean",
             "icon": "sicon-users",
@@ -75,7 +114,13 @@
             "id": "visitors_min",
             "format": "integer",
             "value": 5,
-            "conditions": [{"id": "enable_visitors", "operation": "=", "value": true}]
+            "conditions": [
+                {
+                    "id": "enable_visitors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
         },
         {
             "type": "number",
@@ -83,9 +128,19 @@
             "id": "visitors_max",
             "format": "integer",
             "value": 25,
-            "conditions": [{"id": "enable_visitors", "operation": "=", "value": true}]
+            "conditions": [
+                {
+                    "id": "enable_visitors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
         },
-        {"type": "static", "id": "line2", "format": "line"},
+        {
+            "type": "static",
+            "id": "line2",
+            "format": "line"
+        },
         {
             "type": "boolean",
             "icon": "sicon-shield-check",
@@ -95,7 +150,11 @@
             "value": true,
             "selected": true
         },
-        {"type": "static", "id": "line3", "format": "line"},
+        {
+            "type": "static",
+            "id": "line3",
+            "format": "line"
+        },
         {
             "type": "boolean",
             "icon": "sicon-box",
@@ -111,9 +170,19 @@
             "id": "stock_threshold",
             "format": "integer",
             "value": 10,
-            "conditions": [{"id": "enable_stock", "operation": "=", "value": true}]
+            "conditions": [
+                {
+                    "id": "enable_stock",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
         },
-        {"type": "static", "id": "line4", "format": "line"},
+        {
+            "type": "static",
+            "id": "line4",
+            "format": "line"
+        },
         {
             "type": "static",
             "format": "title",
@@ -121,82 +190,201 @@
             "value": "<div style='background:#21636d;padding:12px;border-radius:8px;margin-bottom:15px;text-align:center;'><strong style='color:#fff;'>⚙️ إعدادات عامة</strong></div>",
             "variant": "h6"
         },
-        {"id": "header_is_sticky", "label": "تثبيت الهيدر عند التمرير", "type": "boolean", "format": "switch", "value": true, "selected": true},
-        {"id": "enable_more_menu", "label": "تفعيل قائمة المزيد", "type": "boolean", "format": "switch", "value": true, "selected": true},
-        {"id": "enable_add_product_toast", "label": "إشعار الإضافة للسلة", "type": "boolean", "format": "switch", "value": true, "selected": true},
-        {"id": "sticky_add_to_cart", "label": "تثبيت زر الإضافة (جوال)", "type": "boolean", "format": "switch", "value": true, "selected": true},
-        {"id": "show_tags", "label": "إظهار الوسوم", "type": "boolean", "format": "switch", "value": true, "selected": true},
-        {"id": "imageZoom", "label": "تكبير صور المنتج", "type": "boolean", "format": "switch", "value": false, "selected": false},
-        {"id": "topnav_is_dark", "type": "boolean", "format": "switch", "value": true, "selected": true, "label": "شريط علوي داكن"},
-        {"id": "footer_is_dark", "type": "boolean", "format": "switch", "value": true, "selected": true, "label": "فوتر داكن"},
-        {"id": "important_links", "type": "boolean", "format": "switch", "value": true, "selected": true, "label": "روابط هامة"},
-        {"id": "slider_background_size", "type": "items", "format": "dropdown-list", "label": "عرض صور المنتج", "selected": [{"label": "Contain", "value": "contain", "key": "c1"}], "options": [{"label": "Cover", "value": "cover", "key": "c2"}, {"label": "Contain", "value": "contain", "key": "c1"}], "source": "Manual", "required": true}
+        {
+            "id": "header_is_sticky",
+            "label": "تثبيت الهيدر عند التمرير",
+            "type": "boolean",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {
+            "id": "enable_more_menu",
+            "label": "تفعيل قائمة المزيد",
+            "type": "boolean",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {
+            "id": "enable_add_product_toast",
+            "label": "إشعار الإضافة للسلة",
+            "type": "boolean",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {
+            "id": "sticky_add_to_cart",
+            "label": "تثبيت زر الإضافة (جوال)",
+            "type": "boolean",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {
+            "id": "show_tags",
+            "label": "إظهار الوسوم",
+            "type": "boolean",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {
+            "id": "imageZoom",
+            "label": "تكبير صور المنتج",
+            "type": "boolean",
+            "format": "switch",
+            "value": false,
+            "selected": false
+        },
+        {
+            "id": "topnav_is_dark",
+            "type": "boolean",
+            "format": "switch",
+            "value": true,
+            "selected": true,
+            "label": "شريط علوي داكن"
+        },
+        {
+            "id": "footer_is_dark",
+            "type": "boolean",
+            "format": "switch",
+            "value": true,
+            "selected": true,
+            "label": "فوتر داكن"
+        },
+        {
+            "id": "important_links",
+            "type": "boolean",
+            "format": "switch",
+            "value": true,
+            "selected": true,
+            "label": "روابط هامة"
+        },
+        {
+            "id": "slider_background_size",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "عرض صور المنتج",
+            "selected": [
+                {
+                    "label": "Contain",
+                    "value": "contain",
+                    "key": "c1"
+                }
+            ],
+            "options": [
+                {
+                    "label": "Cover",
+                    "value": "cover",
+                    "key": "c2"
+                },
+                {
+                    "label": "Contain",
+                    "value": "contain",
+                    "key": "c1"
+                }
+            ],
+            "source": "Manual",
+            "required": true
+        }
     ],
     "components": [
         {
             "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567001",
-            "title": {"ar": "ذروة - بانر رئيسي", "en": "Therwa - Hero Slider"},
+            "title": {
+                "ar": "ذروة - بانر رئيسي",
+                "en": "Therwa - Hero Slider"
+            },
             "icon": "sicon-image-carousel",
             "path": "home.therwa-hero",
             "fields": []
         },
         {
             "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567002",
-            "title": {"ar": "ذروة - الأقسام", "en": "Therwa - Categories"},
+            "title": {
+                "ar": "ذروة - الأقسام",
+                "en": "Therwa - Categories"
+            },
             "icon": "sicon-layout-grid-rearrange",
             "path": "home.therwa-categories",
             "fields": []
         },
         {
             "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567003",
-            "title": {"ar": "ذروة - مميزات المتجر", "en": "Therwa - Store Features"},
+            "title": {
+                "ar": "ذروة - مميزات المتجر",
+                "en": "Therwa - Store Features"
+            },
             "icon": "sicon-star",
             "path": "home.therwa-features",
             "fields": []
         },
         {
             "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567004",
-            "title": {"ar": "ذروة - عروض الفلاش", "en": "Therwa - Flash Sale"},
+            "title": {
+                "ar": "ذروة - عروض الفلاش",
+                "en": "Therwa - Flash Sale"
+            },
             "icon": "sicon-flash",
             "path": "home.therwa-flash-sale",
             "fields": []
         },
         {
             "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567005",
-            "title": {"ar": "ذروة - منتجات مميزة", "en": "Therwa - Featured Products"},
+            "title": {
+                "ar": "ذروة - منتجات مميزة",
+                "en": "Therwa - Featured Products"
+            },
             "icon": "sicon-box",
             "path": "home.therwa-featured-products",
             "fields": []
         },
         {
             "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567006",
-            "title": {"ar": "ذروة - بانر عريض", "en": "Therwa - Wide Banner"},
+            "title": {
+                "ar": "ذروة - بانر عريض",
+                "en": "Therwa - Wide Banner"
+            },
             "icon": "sicon-image",
             "path": "home.therwa-banner",
             "fields": []
         },
         {
             "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567007",
-            "title": {"ar": "ذروة - آراء العملاء", "en": "Therwa - Testimonials"},
+            "title": {
+                "ar": "ذروة - آراء العملاء",
+                "en": "Therwa - Testimonials"
+            },
             "icon": "sicon-chat-bubbles",
             "path": "home.therwa-testimonials",
             "fields": []
         },
         {
             "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567008",
-            "title": {"ar": "ذروة - الأسئلة الشائعة", "en": "Therwa - FAQ"},
-            "icon": "sicon-help-circle",
+            "title": {
+                "ar": "ذروة - الأسئلة الشائعة",
+                "en": "Therwa - FAQ"
+            },
+            "icon": "sicon-back",
             "path": "home.therwa-faq",
             "fields": []
         },
         {
             "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567009",
-            "title": {"ar": "ذروة - المدونة", "en": "Therwa - Blog"},
+            "title": {
+                "ar": "ذروة - المدونة",
+                "en": "Therwa - Blog"
+            },
             "icon": "sicon-file-text",
             "path": "home.therwa-blog",
             "fields": []
         }
     ],
     "support_url": "https://salla.com/",
-    "description": {"ar": "ثيم ذروة - تصميم احترافي مع أدوات CRO متقدمة", "en": "Therwa Theme - Professional design with advanced CRO tools"}
+    "description": {
+        "ar": "ثيم ذروة - تصميم احترافي مع أدوات CRO متقدمة",
+        "en": "Therwa Theme - Professional design with advanced CRO tools"
+    }
 }
