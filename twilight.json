@@ -28,6 +28,38 @@
         {
             "type": "static",
             "format": "title",
+            "id": "header-footer-colors-title",
+            "value": "<div class='rounded-lg' style='background-color: #1a1a2e; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>🎨 ألوان الهيدر والفوتر</h6></div>",
+            "variant": "h6"
+        },
+        {
+            "type": "string",
+            "icon": "sicon-paint-brush",
+            "label": "لون نص الهيدر",
+            "description": "اختر لون النصوص والأيقونات في الهيدر",
+            "id": "header_text_color",
+            "format": "color",
+            "required": false,
+            "value": "#FFFFFF"
+        },
+        {
+            "type": "string",
+            "icon": "sicon-paint-brush",
+            "label": "لون نص الفوتر",
+            "description": "اختر لون النصوص والروابط في الفوتر",
+            "id": "footer_text_color",
+            "format": "color",
+            "required": false,
+            "value": "#FFFFFF"
+        },
+        {
+            "type": "static",
+            "id": "static-line-colors",
+            "format": "line"
+        },
+        {
+            "type": "static",
+            "format": "title",
             "id": "cro-features-title",
             "value": "<div class='rounded-lg' style='background-color: #87602C; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'>🚀 مميزات تحسين المبيعات (CRO)</h6></div>",
             "variant": "h6"
