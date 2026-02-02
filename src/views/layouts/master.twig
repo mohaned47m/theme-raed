@@ -30,10 +30,7 @@
     <link rel="stylesheet" href="{{ 'fonts/sallaicons.css'|cdn }}"/>
     {% hook 'head:end' %}
 </head>
-<body id="app" class="theme-raed overflow-x-hidden {% hook 'body:classes' %}
-  {{ theme.settings.get('footer_is_dark') ? ' footer-is-dark' : ' footer-is-light' }}
-  {{ theme.settings.get('topnav_is_dark') ? ' topnav-is-dark' : '' }}
-  {{ theme.settings.get('sticky_add_to_cart') ? ' is-sticky-product-bar' : '' }}">
+<body id="app" class="theme-raed overflow-x-hidden {% hook 'body:classes' %}">
 <noscript>To get full functionality of this site you need to enable JavaScript.</noscript>
 <div class="app-inner flex flex-col min-h-full">
     {% hook 'body:start' %}
@@ -60,83 +57,14 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
-
-body, body * { font-family: 'Cairo', sans-serif !important; }
-body { background-color: #FFFFFF !important; }
-
-/* ===== TOP BAR ===== */
-.top-navbar {
-    background-color: {{ theme.settings.get('topbar_bg_color', '#1a1a1a') }} !important;
-    background: {{ theme.settings.get('topbar_bg_color', '#1a1a1a') }} !important;
-}
-.top-navbar, .top-navbar a, .top-navbar span, .top-navbar i, .top-navbar p {
-    color: {{ theme.settings.get('topbar_text_color', '#94a3b8') }} !important;
-}
-
-/* ===== HEADER (Background = Brand Color) ===== */
-.store-header, header, #mainnav, .main-nav-container, .main-nav-container .inner,
-.main-nav-container.shadow-default, nav.main-nav-container, .bg-white.main-nav-container {
-    background-color: {{ theme.color.primary }} !important;
-    background: {{ theme.color.primary }} !important;
-}
-
-/* Header Text */
-.store-header a, .store-header span, .store-header p, #mainnav a, #mainnav span,
-.main-nav-container a, .main-nav-container span, custom-main-menu a, custom-main-menu span,
-custom-main-menu, .navbar-brand span {
-    color: {{ theme.settings.get('header_text_color', '#FFFFFF') }} !important;
-}
-
-/* Header Icons */
-.store-header i, #mainnav i, .main-nav-container i, .header-btn i, salla-cart-summary i {
-    color: {{ theme.settings.get('header_icon_color', '#FFFFFF') }} !important;
-}
-
-/* Header Icon Buttons */
-.header-btn, salla-cart-summary, .btn--rounded-gray {
-    background-color: {{ theme.settings.get('header_icon_bg_color', '#87602C') }} !important;
-    background: {{ theme.settings.get('header_icon_bg_color', '#87602C') }} !important;
-    border-radius: 8px !important;
-    padding: 8px !important;
-}
-salla-cart-summary span, salla-cart-summary a {
-    color: {{ theme.settings.get('header_icon_color', '#FFFFFF') }} !important;
-}
-
-/* Dropdown */
-.s-menu-dropdown, .dropdown-menu, .sub-menu {
-    background-color: {{ theme.color.primary }} !important;
-    background: {{ theme.color.primary }} !important;
-}
-.s-menu-dropdown a, .s-menu-dropdown span, .dropdown-menu a, .dropdown-menu span {
-    color: {{ theme.settings.get('header_text_color', '#FFFFFF') }} !important;
-}
-
-/* ===== FOOTER (Background = Brand Color) ===== */
-footer, .footer, .main-footer {
-    background-color: {{ theme.color.primary }} !important;
-    background: {{ theme.color.primary }} !important;
-}
-
-/* Footer Text */
-footer, footer *, .footer, .footer *, footer a, footer span, footer p,
-footer h1, footer h2, footer h3, footer h4, footer h5, footer h6,
-.footer a, .footer span, .footer p {
-    color: {{ theme.settings.get('footer_text_color', '#FFFFFF') }} !important;
-}
-
-/* Footer Icons */
-footer i, .footer i {
-    color: {{ theme.settings.get('footer_icon_color', '#FFFFFF') }} !important;
-}
-
-footer a:hover, .footer a:hover { opacity: 0.7 !important; }
-
-/* ===== BUTTONS ===== */
-.s-button-primary, .btn--primary {
-    background-color: {{ theme.color.primary }} !important;
-    border-color: {{ theme.color.primary }} !important;
-}
+body,body *{font-family:'Cairo',sans-serif!important}
+body{background:#FFF!important}
+.store-header,.store-header *,#mainnav,#mainnav *,.main-nav-container,.main-nav-container *,.main-nav-container .inner,.top-navbar,.top-navbar *{background-color:{{theme.color.primary}}!important;background:{{theme.color.primary}}!important}
+.store-header a,.store-header span,.store-header i,#mainnav a,#mainnav span,#mainnav i,.main-nav-container a,.main-nav-container span,.main-nav-container i,custom-main-menu,custom-main-menu a,custom-main-menu span,.navbar-brand span,.top-navbar a,.top-navbar span,.top-navbar i,.header-btn,.header-btn i,salla-cart-summary,salla-cart-summary i,salla-cart-summary span,salla-cart-summary a{color:{{theme.color.reverse_text}}!important}
+.s-menu-dropdown,.s-menu-dropdown *,.dropdown-menu,.dropdown-menu *{background-color:{{theme.color.primary}}!important;background:{{theme.color.primary}}!important}
+.s-menu-dropdown a,.s-menu-dropdown span,.dropdown-menu a,.dropdown-menu span{color:{{theme.color.reverse_text}}!important}
+footer,footer *,.footer,.footer *{background-color:{{theme.color.primary}}!important;background:{{theme.color.primary}}!important;color:{{theme.color.reverse_text}}!important}
+.s-button-primary,.btn--primary{background-color:{{theme.color.primary}}!important;border-color:{{theme.color.primary}}!important;color:{{theme.color.reverse_text}}!important}
 </style>
 </body>
 </html>
