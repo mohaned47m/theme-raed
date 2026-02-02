@@ -11,16 +11,6 @@
         "color",
         "breadcrumb",
         "unite-cards-height",
-        "component-featured-products",
-        "component-fixed-banner",
-        "component-fixed-products",
-        "component-products-slider",
-        "component-photos-slider",
-        "component-parallax-background",
-        "component-testimonials",
-        "component-square-photos",
-        "component-store-features",
-        "component-youtube",
         "menu-images",
         "filters"
     ],
@@ -29,20 +19,13 @@
             "type": "static",
             "format": "title",
             "id": "cro-main-title",
-            "value": "<div style='background: linear-gradient(135deg, #87602C 0%, #a67c3d 100%);padding:15px;border-radius:10px;margin-bottom:20px;text-align:center;'><strong style='color:#fff;font-size:16px;'>🚀 مميزات ذروة CRO</strong><p style='color:rgba(255,255,255,0.8);font-size:12px;margin-top:5px;'>أدوات تحسين المبيعات</p></div>",
-            "variant": "h6"
-        },
-        {
-            "type": "static",
-            "format": "title",
-            "id": "whatsapp-title",
-            "value": "<div style='background:#25D366;padding:10px 15px;border-radius:8px;margin-bottom:10px;'><strong style='color:#fff;'>💬 زر الواتساب العائم</strong></div>",
+            "value": "<div style='background: linear-gradient(135deg, #87602C 0%, #a67c3d 100%);padding:15px;border-radius:10px;margin-bottom:20px;text-align:center;'><strong style='color:#fff;font-size:16px;'>🚀 مميزات ذروة CRO</strong></div>",
             "variant": "h6"
         },
         {
             "type": "boolean",
             "icon": "sicon-whatsapp",
-            "label": "تفعيل زر الواتساب",
+            "label": "تفعيل زر الواتساب العائم",
             "id": "enable_whatsapp",
             "format": "switch",
             "value": true,
@@ -55,14 +38,12 @@
             "id": "whatsapp_number",
             "format": "text",
             "placeholder": "966512345678",
-            "description": "أدخل الرقم بدون + أو 00",
             "value": "",
             "conditions": [{"id": "enable_whatsapp", "operation": "=", "value": true}]
         },
         {
             "type": "string",
-            "icon": "sicon-chat-bubble",
-            "label": "رسالة ترحيبية",
+            "label": "رسالة الواتساب",
             "id": "whatsapp_message",
             "format": "text",
             "value": "مرحباً، أحتاج مساعدة...",
@@ -70,8 +51,7 @@
         },
         {
             "type": "items",
-            "icon": "sicon-layout",
-            "label": "مكان الزر",
+            "label": "مكان زر الواتساب",
             "id": "whatsapp_position",
             "format": "dropdown-list",
             "selected": [{"label": "يسار", "value": "left", "key": "left"}],
@@ -81,17 +61,9 @@
         },
         {"type": "static", "id": "line1", "format": "line"},
         {
-            "type": "static",
-            "format": "title",
-            "id": "visitors-title",
-            "value": "<div style='background:#E74C3C;padding:10px 15px;border-radius:8px;margin-bottom:10px;'><strong style='color:#fff;'>👥 عداد الزوار اللايف</strong></div>",
-            "variant": "h6"
-        },
-        {
             "type": "boolean",
             "icon": "sicon-users",
-            "label": "تفعيل عداد الزوار",
-            "description": "يظهر في صفحة المنتج",
+            "label": "تفعيل عداد الزوار (صفحة المنتج)",
             "id": "enable_visitors",
             "format": "switch",
             "value": true,
@@ -99,93 +71,35 @@
         },
         {
             "type": "number",
-            "icon": "sicon-sort-numeric-down",
-            "label": "الحد الأدنى",
+            "label": "الحد الأدنى للزوار",
             "id": "visitors_min",
             "format": "integer",
             "value": 5,
-            "minimum": 1,
-            "maximum": 50,
             "conditions": [{"id": "enable_visitors", "operation": "=", "value": true}]
         },
         {
             "type": "number",
-            "icon": "sicon-sort-numeric-up",
-            "label": "الحد الأقصى",
+            "label": "الحد الأقصى للزوار",
             "id": "visitors_max",
             "format": "integer",
             "value": 25,
-            "minimum": 5,
-            "maximum": 100,
             "conditions": [{"id": "enable_visitors", "operation": "=", "value": true}]
         },
         {"type": "static", "id": "line2", "format": "line"},
         {
-            "type": "static",
-            "format": "title",
-            "id": "trust-title",
-            "value": "<div style='background:#27AE60;padding:10px 15px;border-radius:8px;margin-bottom:10px;'><strong style='color:#fff;'>🛡️ شارات الثقة</strong></div>",
-            "variant": "h6"
-        },
-        {
             "type": "boolean",
             "icon": "sicon-shield-check",
-            "label": "تفعيل شارات الثقة",
-            "description": "تظهر في صفحة المنتج",
+            "label": "تفعيل شارات الثقة (صفحة المنتج)",
             "id": "enable_trust",
             "format": "switch",
             "value": true,
             "selected": true
         },
-        {
-            "type": "string",
-            "icon": "sicon-shield-check",
-            "label": "نص الضمان",
-            "id": "trust_guarantee",
-            "format": "text",
-            "value": "ضمان سنتين",
-            "conditions": [{"id": "enable_trust", "operation": "=", "value": true}]
-        },
-        {
-            "type": "string",
-            "icon": "sicon-return",
-            "label": "نص الاسترجاع",
-            "id": "trust_return",
-            "format": "text",
-            "value": "استرجاع 14 يوم",
-            "conditions": [{"id": "enable_trust", "operation": "=", "value": true}]
-        },
-        {
-            "type": "string",
-            "icon": "sicon-lock",
-            "label": "نص الدفع الآمن",
-            "id": "trust_payment",
-            "format": "text",
-            "value": "دفع آمن 100%",
-            "conditions": [{"id": "enable_trust", "operation": "=", "value": true}]
-        },
-        {
-            "type": "string",
-            "icon": "sicon-shipping-fast",
-            "label": "نص الشحن",
-            "id": "trust_shipping",
-            "format": "text",
-            "value": "شحن سريع",
-            "conditions": [{"id": "enable_trust", "operation": "=", "value": true}]
-        },
         {"type": "static", "id": "line3", "format": "line"},
-        {
-            "type": "static",
-            "format": "title",
-            "id": "stock-title",
-            "value": "<div style='background:#E67E22;padding:10px 15px;border-radius:8px;margin-bottom:10px;'><strong style='color:#fff;'>📦 تنبيه الكمية المحدودة</strong></div>",
-            "variant": "h6"
-        },
         {
             "type": "boolean",
             "icon": "sicon-box",
-            "label": "تفعيل تنبيه الكمية",
-            "description": "يظهر عند انخفاض المخزون",
+            "label": "تفعيل تنبيه الكمية المحدودة",
             "id": "enable_stock",
             "format": "switch",
             "value": true,
@@ -193,102 +107,18 @@
         },
         {
             "type": "number",
-            "icon": "sicon-sort-numeric-down",
-            "label": "حد التنبيه",
-            "description": "يظهر إذا الكمية أقل من",
+            "label": "حد التنبيه (الكمية)",
             "id": "stock_threshold",
             "format": "integer",
             "value": 10,
-            "minimum": 1,
-            "maximum": 50,
-            "conditions": [{"id": "enable_stock", "operation": "=", "value": true}]
-        },
-        {
-            "type": "string",
-            "icon": "sicon-format-text",
-            "label": "نص التنبيه",
-            "id": "stock_text",
-            "format": "text",
-            "value": "🔥 باقي {quantity} قطع فقط!",
             "conditions": [{"id": "enable_stock", "operation": "=", "value": true}]
         },
         {"type": "static", "id": "line4", "format": "line"},
         {
             "type": "static",
             "format": "title",
-            "id": "countdown-title",
-            "value": "<div style='background:#9B59B6;padding:10px 15px;border-radius:8px;margin-bottom:10px;'><strong style='color:#fff;'>⏰ عداد تنازلي للعروض</strong></div>",
-            "variant": "h6"
-        },
-        {
-            "type": "boolean",
-            "icon": "sicon-clock",
-            "label": "تفعيل العداد التنازلي",
-            "description": "يظهر على المنتجات المخفضة",
-            "id": "enable_countdown",
-            "format": "switch",
-            "value": true,
-            "selected": true
-        },
-        {
-            "type": "string",
-            "icon": "sicon-format-text",
-            "label": "نص العداد",
-            "id": "countdown_text",
-            "format": "text",
-            "value": "⚡ ينتهي العرض خلال:",
-            "conditions": [{"id": "enable_countdown", "operation": "=", "value": true}]
-        },
-        {"type": "static", "id": "line5", "format": "line"},
-        {
-            "type": "static",
-            "format": "title",
-            "id": "shipping-title",
-            "value": "<div style='background:#3498DB;padding:10px 15px;border-radius:8px;margin-bottom:10px;'><strong style='color:#fff;'>🚚 شريط الشحن المجاني</strong></div>",
-            "variant": "h6"
-        },
-        {
-            "type": "boolean",
-            "icon": "sicon-shipping-fast",
-            "label": "تفعيل شريط الشحن",
-            "id": "enable_shipping_bar",
-            "format": "switch",
-            "value": true,
-            "selected": true
-        },
-        {
-            "type": "number",
-            "icon": "sicon-money",
-            "label": "مبلغ الشحن المجاني",
-            "id": "shipping_amount",
-            "format": "integer",
-            "value": 200,
-            "minimum": 50,
-            "maximum": 5000,
-            "conditions": [{"id": "enable_shipping_bar", "operation": "=", "value": true}]
-        },
-        {
-            "type": "string",
-            "label": "نص قبل الوصول للحد",
-            "id": "shipping_text_before",
-            "format": "text",
-            "value": "أضف {amount} ر.س للشحن المجاني! 🚚",
-            "conditions": [{"id": "enable_shipping_bar", "operation": "=", "value": true}]
-        },
-        {
-            "type": "string",
-            "label": "نص بعد الوصول للحد",
-            "id": "shipping_text_after",
-            "format": "text",
-            "value": "🎉 مبروك! حصلت على شحن مجاني!",
-            "conditions": [{"id": "enable_shipping_bar", "operation": "=", "value": true}]
-        },
-        {"type": "static", "id": "line6", "format": "line"},
-        {
-            "type": "static",
-            "format": "title",
             "id": "general-title",
-            "value": "<div style='background:#21636d;padding:10px 15px;border-radius:8px;margin-bottom:10px;'><strong style='color:#fff;'>⚙️ إعدادات عامة</strong></div>",
+            "value": "<div style='background:#21636d;padding:12px;border-radius:8px;margin-bottom:15px;text-align:center;'><strong style='color:#fff;'>⚙️ إعدادات عامة</strong></div>",
             "variant": "h6"
         },
         {"id": "header_is_sticky", "label": "تثبيت الهيدر عند التمرير", "type": "boolean", "format": "switch", "value": true, "selected": true},
@@ -303,16 +133,119 @@
         {"id": "slider_background_size", "type": "items", "format": "dropdown-list", "label": "عرض صور المنتج", "selected": [{"label": "Contain", "value": "contain", "key": "c1"}], "options": [{"label": "Cover", "value": "cover", "key": "c2"}, {"label": "Contain", "value": "contain", "key": "c1"}], "source": "Manual", "required": true}
     ],
     "components": [
-        {"key": "therwa-001", "title": {"ar": "ذروة - واتساب عائم", "en": "Therwa - WhatsApp"}, "icon": "sicon-whatsapp", "path": "home.therwa-whatsapp", "fields": []},
-        {"key": "therwa-002", "title": {"ar": "ذروة - عداد الزوار", "en": "Therwa - Visitors"}, "icon": "sicon-users", "path": "home.therwa-visitors", "fields": []},
-        {"key": "therwa-003", "title": {"ar": "ذروة - شارات الثقة", "en": "Therwa - Trust"}, "icon": "sicon-shield-check", "path": "home.therwa-trust", "fields": []},
-        {"key": "therwa-004", "title": {"ar": "ذروة - تنبيه الكمية", "en": "Therwa - Stock"}, "icon": "sicon-box", "path": "home.therwa-stock", "fields": []},
-        {"key": "therwa-005", "title": {"ar": "ذروة - عداد تنازلي", "en": "Therwa - Countdown"}, "icon": "sicon-clock", "path": "home.therwa-countdown", "fields": []},
-        {"key": "therwa-006", "title": {"ar": "ذروة - شريط الشحن", "en": "Therwa - Shipping"}, "icon": "sicon-shipping-fast", "path": "home.therwa-shipping", "fields": []},
-        {"key": "186b3f4f-25cf-4d3c-abca-cef7eed6f0ab", "title": {"ar": "صور متحركة", "en": "Slider"}, "icon": "sicon-image-carousel", "path": "home.enhanced-slider", "fields": []},
-        {"key": "2b1b130b-5b37-422a-9683-e0fd367460c0", "title": {"ar": "روابط سريعة", "en": "Links"}, "icon": "sicon-layout-grid-rearrange", "path": "home.main-links", "fields": []},
-        {"key": "541cc423-90c7-4230-8a33-a0342cfde4ad", "title": {"ar": "آراء العملاء", "en": "Testimonials"}, "icon": "sicon-chat-bubbles", "path": "home.custom-testimonials", "fields": []}
+        {
+            "key": "therwa-hero-001",
+            "title": {"ar": "ذروة - بانر رئيسي", "en": "Therwa - Hero Slider"},
+            "icon": "sicon-image-carousel",
+            "path": "home.therwa-hero",
+            "fields": [
+                {"type": "collection", "id": "slides", "label": "السلايدات", "format": "collection", "item_label": "سلايد", "maxLength": 5, "fields": [
+                    {"type": "string", "id": "slides.image", "label": "صورة الخلفية", "format": "image"},
+                    {"type": "string", "id": "slides.title", "label": "العنوان", "format": "text", "multilanguage": true},
+                    {"type": "string", "id": "slides.subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true},
+                    {"type": "string", "id": "slides.description", "label": "الوصف", "format": "textarea", "multilanguage": true},
+                    {"type": "string", "id": "slides.button_text", "label": "نص الزر", "format": "text", "multilanguage": true},
+                    {"type": "string", "id": "slides.button_url", "label": "رابط الزر", "format": "text"},
+                    {"type": "string", "id": "slides.button2_text", "label": "نص الزر الثاني", "format": "text", "multilanguage": true},
+                    {"type": "string", "id": "slides.button2_url", "label": "رابط الزر الثاني", "format": "text"}
+                ]}
+            ]
+        },
+        {
+            "key": "therwa-categories-002",
+            "title": {"ar": "ذروة - الأقسام", "en": "Therwa - Categories"},
+            "icon": "sicon-layout-grid-rearrange",
+            "path": "home.therwa-categories",
+            "fields": [
+                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "تسوق حسب الفئة", "multilanguage": true},
+                {"type": "string", "id": "subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true},
+                {"type": "number", "id": "limit", "label": "عدد الأقسام", "format": "integer", "value": 5},
+                {"type": "boolean", "id": "show_all_button", "label": "عرض زر الكل", "format": "switch", "value": true}
+            ]
+        },
+        {
+            "key": "therwa-features-003",
+            "title": {"ar": "ذروة - مميزات المتجر", "en": "Therwa - Store Features"},
+            "icon": "sicon-star",
+            "path": "home.therwa-features",
+            "fields": [
+                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "لماذا تختارنا؟", "multilanguage": true},
+                {"type": "string", "id": "subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true}
+            ]
+        },
+        {
+            "key": "therwa-flash-sale-004",
+            "title": {"ar": "ذروة - عروض الفلاش", "en": "Therwa - Flash Sale"},
+            "icon": "sicon-flash",
+            "path": "home.therwa-flash-sale",
+            "fields": [
+                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "عروض الفلاش الحصرية", "multilanguage": true},
+                {"type": "string", "id": "subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true},
+                {"type": "number", "id": "countdown_days", "label": "أيام العد التنازلي", "format": "integer", "value": 3}
+            ]
+        },
+        {
+            "key": "therwa-featured-005",
+            "title": {"ar": "ذروة - منتجات مميزة", "en": "Therwa - Featured Products"},
+            "icon": "sicon-box",
+            "path": "home.therwa-featured-products",
+            "fields": [
+                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "اكتشف مجموعتنا المختارة", "multilanguage": true},
+                {"type": "string", "id": "subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true},
+                {"type": "number", "id": "limit", "label": "عدد المنتجات", "format": "integer", "value": 8}
+            ]
+        },
+        {
+            "key": "therwa-banner-006",
+            "title": {"ar": "ذروة - بانر عريض", "en": "Therwa - Wide Banner"},
+            "icon": "sicon-image",
+            "path": "home.therwa-banner",
+            "fields": [
+                {"type": "string", "id": "image", "label": "صورة الخلفية", "format": "image"},
+                {"type": "string", "id": "badge", "label": "الشارة", "format": "text", "multilanguage": true},
+                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "مجموعة البصريات الفاخرة", "multilanguage": true},
+                {"type": "string", "id": "description", "label": "الوصف", "format": "textarea", "multilanguage": true},
+                {"type": "string", "id": "button_text", "label": "نص الزر", "format": "text", "value": "تسوق الآن", "multilanguage": true},
+                {"type": "string", "id": "button_url", "label": "رابط الزر", "format": "text"},
+                {"type": "string", "id": "product_image", "label": "صورة المنتج", "format": "image"}
+            ]
+        },
+        {
+            "key": "therwa-testimonials-007",
+            "title": {"ar": "ذروة - آراء العملاء", "en": "Therwa - Testimonials"},
+            "icon": "sicon-chat-bubbles",
+            "path": "home.therwa-testimonials",
+            "fields": [
+                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "تجارب المجتمع", "multilanguage": true},
+                {"type": "string", "id": "subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true}
+            ]
+        },
+        {
+            "key": "therwa-faq-008",
+            "title": {"ar": "ذروة - الأسئلة الشائعة", "en": "Therwa - FAQ"},
+            "icon": "sicon-help-circle",
+            "path": "home.therwa-faq",
+            "fields": [
+                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "الأسئلة الشائعة", "multilanguage": true},
+                {"type": "string", "id": "subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true},
+                {"type": "collection", "id": "faqs", "label": "الأسئلة", "format": "collection", "item_label": "سؤال", "maxLength": 10, "fields": [
+                    {"type": "string", "id": "faqs.question", "label": "السؤال", "format": "text", "multilanguage": true},
+                    {"type": "string", "id": "faqs.answer", "label": "الإجابة", "format": "textarea", "multilanguage": true}
+                ]}
+            ]
+        },
+        {
+            "key": "therwa-blog-009",
+            "title": {"ar": "ذروة - المدونة", "en": "Therwa - Blog"},
+            "icon": "sicon-file-text",
+            "path": "home.therwa-blog",
+            "fields": [
+                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "المدونة", "multilanguage": true},
+                {"type": "string", "id": "subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true},
+                {"type": "number", "id": "limit", "label": "عدد المقالات", "format": "integer", "value": 3}
+            ]
+        }
     ],
     "support_url": "https://salla.com/",
-    "description": {"ar": "ثيم ذروة - مُحسّن لزيادة المبيعات", "en": "Therwa Theme - CRO Optimized"}
+    "description": {"ar": "ثيم ذروة - تصميم احترافي مع أدوات CRO متقدمة", "en": "Therwa Theme - Professional design with advanced CRO tools"}
 }
