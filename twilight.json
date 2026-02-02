@@ -377,7 +377,7 @@
                 "ar": "ذروة - المدونة",
                 "en": "Therwa - Blog"
             },
-            "icon": "sicon-file-text",
+            "icon": "sicon-checklist",
             "path": "home.therwa-blog",
             "fields": []
         }
