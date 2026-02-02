@@ -5,15 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ theme.settings.set('placeholder', 'images/placeholder.png') }}
-
     <script defer data-cfasync="false" crossorigin="anonymous" src="{{ 'product-card.js'|asset }}"></script>
     <script defer src="{{ 'main-menu.js'|asset }}"></script>
     {% if theme.settings.get('enable_add_product_toast', true) %}
         <script defer src="{{ 'add-product-toast.js'|asset }}"></script>
     {% endif %}
-
     {% block head_scripts %}{% endblock %}
-
     <script data-cfasync="false">
         window.header_is_sticky = "{{theme.settings.get('header_is_sticky', true)}}"
         window.imageZoom = "{{theme.settings.get('imageZoom')}}"
@@ -21,7 +18,6 @@
         window.enable_more_menu = "{{ theme.settings.get('enable_more_menu', true) }}"
         window.enable_add_product_toast = "{{ theme.settings.get('enable_add_product_toast', true) }}"
     </script>
-    
     {% hook 'head:start' %}
     {% hook head %}
     {% block styles %}{% endblock %}
@@ -31,40 +27,33 @@
     {% hook 'head:end' %}
 </head>
 <body id="app" class="theme-raed overflow-x-hidden {% hook 'body:classes' %}">
-<noscript>To get full functionality of this site you need to enable JavaScript.</noscript>
+<noscript>Enable JavaScript for full functionality.</noscript>
 <div class="app-inner flex flex-col min-h-full">
     {% hook 'body:start' %}
     {% component 'header.header' %}
-    <main id="main-content" role="main">
-    {% block content %}{% endblock %}
-    </main>
+    <main id="main-content" role="main">{% block content %}{% endblock %}</main>
     {% component 'footer.footer' %}
 </div>
 {% hook 'body:end' %}
-{% if theme.settings.get('enable_add_product_toast', true) %}
-    <salla-add-product-toast></salla-add-product-toast>
-{% endif %}
+{% if theme.settings.get('enable_add_product_toast', true) %}<salla-add-product-toast></salla-add-product-toast>{% endif %}
 <script defer crossorigin="anonymous" src="{{ 'app.js' | asset }}"></script>
 <salla-offer-modal></salla-offer-modal>
 <salla-search></salla-search>
-{% if user.type=='guest' %}
-    <salla-login-modal></salla-login-modal>
-{% endif %}
-{% if store.scope %}
-    <salla-scopes selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>
-{% endif %}
+{% if user.type=='guest' %}<salla-login-modal></salla-login-modal>{% endif %}
+{% if store.scope %}<salla-scopes selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>{% endif %}
 {% block scripts %}{% endblock %}
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
 body,body *{font-family:'Cairo',sans-serif!important}
 body{background:#FFF!important}
-.store-header,.store-header *,#mainnav,#mainnav *,.main-nav-container,.main-nav-container *,.main-nav-container .inner,.top-navbar,.top-navbar *{background-color:{{theme.color.primary}}!important;background:{{theme.color.primary}}!important}
-.store-header a,.store-header span,.store-header i,#mainnav a,#mainnav span,#mainnav i,.main-nav-container a,.main-nav-container span,.main-nav-container i,custom-main-menu,custom-main-menu a,custom-main-menu span,.navbar-brand span,.top-navbar a,.top-navbar span,.top-navbar i,.header-btn,.header-btn i,salla-cart-summary,salla-cart-summary i,salla-cart-summary span,salla-cart-summary a{color:{{theme.color.reverse_text}}!important}
-.s-menu-dropdown,.s-menu-dropdown *,.dropdown-menu,.dropdown-menu *{background-color:{{theme.color.primary}}!important;background:{{theme.color.primary}}!important}
-.s-menu-dropdown a,.s-menu-dropdown span,.dropdown-menu a,.dropdown-menu span{color:{{theme.color.reverse_text}}!important}
-footer,footer *,.footer,.footer *{background-color:{{theme.color.primary}}!important;background:{{theme.color.primary}}!important;color:{{theme.color.reverse_text}}!important}
-.s-button-primary,.btn--primary{background-color:{{theme.color.primary}}!important;border-color:{{theme.color.primary}}!important;color:{{theme.color.reverse_text}}!important}
+.store-header,.store-header>div,#mainnav,#mainnav>div,.main-nav-container,.main-nav-container>div,.main-nav-container .inner{background-color:{{theme.color.primary}}!important;background:{{theme.color.primary}}!important}
+.store-header a,.store-header span,#mainnav a,#mainnav span,.main-nav-container a,.main-nav-container span,custom-main-menu,custom-main-menu a,custom-main-menu span,.navbar-brand span{color:{{theme.settings.get('header_text_color','#FFFFFF')}}!important}
+.s-menu-dropdown,.s-menu-dropdown>*,.dropdown-menu,.dropdown-menu>*{background-color:{{theme.color.primary}}!important;background:{{theme.color.primary}}!important}
+.s-menu-dropdown a,.s-menu-dropdown span,.dropdown-menu a,.dropdown-menu span{color:{{theme.settings.get('header_text_color','#FFFFFF')}}!important}
+footer,footer>*,.footer,.footer>*{background-color:{{theme.color.primary}}!important;background:{{theme.color.primary}}!important}
+footer,footer *,.footer,.footer *,footer a,footer span,footer p,footer i,footer h1,footer h2,footer h3,footer h4,footer h5,footer h6{color:{{theme.settings.get('footer_text_color','#FFFFFF')}}!important}
+.s-button-primary,.btn--primary{background-color:{{theme.color.primary}}!important;border-color:{{theme.color.primary}}!important}
 </style>
 </body>
 </html>
