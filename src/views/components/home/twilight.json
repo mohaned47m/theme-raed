@@ -1,0 +1,151 @@
+{
+    "name": {
+        "ar": "ذروة",
+        "en": "Therwa"
+    },
+    "repository": "https://github.com/mohaned47m/theme-raed",
+    "author_email": "support@salla.sa",
+    "features": [
+        "mega-menu",
+        "fonts",
+        "color",
+        "breadcrumb",
+        "unite-cards-height",
+        "menu-images",
+        "filters"
+    ],
+    "settings": [
+        {
+            "type": "static",
+            "format": "title",
+            "id": "cro-title",
+            "value": "<div style='background: linear-gradient(135deg, #87602C 0%, #a67c3d 100%);padding:15px;border-radius:10px;margin-bottom:20px;text-align:center;'><strong style='color:#fff;font-size:16px;'>🚀 مميزات ذروة CRO</strong></div>",
+            "variant": "h6"
+        },
+        {
+            "type": "boolean",
+            "icon": "sicon-whatsapp",
+            "label": "تفعيل زر الواتساب العائم",
+            "id": "enable_whatsapp",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {
+            "type": "string",
+            "label": "رقم الواتساب",
+            "id": "whatsapp_number",
+            "format": "text",
+            "placeholder": "966512345678",
+            "value": "",
+            "conditions": [{"id": "enable_whatsapp", "operation": "=", "value": true}]
+        },
+        {"type": "static", "id": "line1", "format": "line"},
+        {
+            "type": "boolean",
+            "icon": "sicon-users",
+            "label": "تفعيل عداد الزوار",
+            "id": "enable_visitors",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {"type": "static", "id": "line2", "format": "line"},
+        {
+            "type": "boolean",
+            "icon": "sicon-shield-check",
+            "label": "تفعيل شارات الثقة",
+            "id": "enable_trust",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {"type": "static", "id": "line3", "format": "line"},
+        {
+            "type": "boolean",
+            "icon": "sicon-box",
+            "label": "تفعيل تنبيه الكمية",
+            "id": "enable_stock",
+            "format": "switch",
+            "value": true,
+            "selected": true
+        },
+        {"type": "static", "id": "line4", "format": "line"},
+        {
+            "type": "static",
+            "format": "title",
+            "id": "general-title",
+            "value": "<div style='background:#2F2824;padding:12px;border-radius:8px;margin-bottom:15px;text-align:center;'><strong style='color:#fff;'>⚙️ إعدادات عامة</strong></div>",
+            "variant": "h6"
+        },
+        {"id": "header_is_sticky", "label": "تثبيت الهيدر", "type": "boolean", "format": "switch", "value": true, "selected": true},
+        {"id": "enable_more_menu", "label": "قائمة المزيد", "type": "boolean", "format": "switch", "value": true, "selected": true},
+        {"id": "enable_add_product_toast", "label": "إشعار الإضافة للسلة", "type": "boolean", "format": "switch", "value": true, "selected": true},
+        {"id": "sticky_add_to_cart", "label": "تثبيت زر الإضافة (جوال)", "type": "boolean", "format": "switch", "value": true, "selected": true},
+        {"id": "show_tags", "label": "إظهار الوسوم", "type": "boolean", "format": "switch", "value": true, "selected": true},
+        {"id": "imageZoom", "label": "تكبير صور المنتج", "type": "boolean", "format": "switch", "value": false, "selected": false},
+        {"id": "topnav_is_dark", "type": "boolean", "format": "switch", "value": true, "selected": true, "label": "شريط علوي داكن"},
+        {"id": "footer_is_dark", "type": "boolean", "format": "switch", "value": true, "selected": true, "label": "فوتر داكن"},
+        {"id": "important_links", "type": "boolean", "format": "switch", "value": true, "selected": true, "label": "روابط هامة"}
+    ],
+    "components": [
+        {
+            "key": "a1b2c3d4-1111-1111-1111-111111111111",
+            "title": {"ar": "ذروة - الهيرو", "en": "Therwa - Hero"},
+            "icon": "sicon-image-carousel",
+            "path": "home.therwa-hero",
+            "fields": []
+        },
+        {
+            "key": "a1b2c3d4-2222-2222-2222-222222222222",
+            "title": {"ar": "ذروة - شارات الثقة", "en": "Therwa - Trust"},
+            "icon": "sicon-shield-check",
+            "path": "home.therwa-trust-badges",
+            "fields": []
+        },
+        {
+            "key": "a1b2c3d4-3333-3333-3333-333333333333",
+            "title": {"ar": "ذروة - الأقسام", "en": "Therwa - Categories"},
+            "icon": "sicon-layout-grid-rearrange",
+            "path": "home.therwa-categories",
+            "fields": []
+        },
+        {
+            "key": "a1b2c3d4-4444-4444-4444-444444444444",
+            "title": {"ar": "ذروة - عروض الفلاش", "en": "Therwa - Flash Sales"},
+            "icon": "sicon-flash",
+            "path": "home.therwa-flash-sales",
+            "fields": []
+        },
+        {
+            "key": "a1b2c3d4-5555-5555-5555-555555555555",
+            "title": {"ar": "ذروة - تجارب العملاء", "en": "Therwa - Testimonials"},
+            "icon": "sicon-chat-bubbles",
+            "path": "home.therwa-testimonials",
+            "fields": []
+        },
+        {
+            "key": "a1b2c3d4-6666-6666-6666-666666666666",
+            "title": {"ar": "ذروة - المنتجات", "en": "Therwa - Products"},
+            "icon": "sicon-box",
+            "path": "home.therwa-products",
+            "fields": []
+        },
+        {
+            "key": "a1b2c3d4-7777-7777-7777-777777777777",
+            "title": {"ar": "ذروة - المدونة", "en": "Therwa - Blog"},
+            "icon": "sicon-file-text",
+            "path": "home.therwa-blog",
+            "fields": []
+        },
+        {
+            "key": "a1b2c3d4-8888-8888-8888-888888888888",
+            "title": {"ar": "ذروة - الأسئلة الشائعة", "en": "Therwa - FAQ"},
+            "icon": "sicon-help-circle",
+            "path": "home.therwa-faq",
+            "fields": []
+        }
+    ],
+    "support_url": "https://salla.com/",
+    "description": {"ar": "ثيم ذروة - تصميم احترافي مُحسّن للمبيعات", "en": "Therwa Theme - CRO Optimized"}
+}

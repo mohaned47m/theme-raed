@@ -1,0 +1,48 @@
+{# ===== 3. تسوق حسب الفئة (Category Grid) ===== #}
+{# تقسيم المنتجات لتسهيل الوصول #}
+{# يسحب الأقسام تلقائياً من سلة #}
+
+<section class="therwa-categories py-12">
+    <div class="container">
+        {# Section Header #}
+        <div class="text-center mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3" style="color: #2F2824;">تسوق حسب الفئة</h2>
+            <p class="text-gray-500">اختر القسم المناسب لاحتياجاتك</p>
+        </div>
+        
+        {# Categories Grid #}
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {% for category in categories %}
+                <a href="{{ category.url }}" class="category-card group relative overflow-hidden rounded-2xl aspect-square block shadow-sm hover:shadow-lg transition-all">
+                    {# Gradient Overlay #}
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10"></div>
+                    
+                    {# Category Image #}
+                    {% if category.image.url %}
+                        <img src="{{ category.image.url }}" alt="{{ category.name }}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    {% else %}
+                        <div class="absolute inset-0" style="background-color: #2F2824;"></div>
+                    {% endif %}
+                    
+                    {# Category Info #}
+                    <div class="absolute bottom-0 left-0 right-0 p-4 z-20">
+                        <h3 class="text-lg font-bold text-white mb-1">{{ category.name }}</h3>
+                        {% if category.products_count %}
+                        <span class="text-sm text-white/70">{{ category.products_count }} منتج</span>
+                        {% endif %}
+                    </div>
+                </a>
+            {% else %}
+                <p class="col-span-full text-center text-gray-500 py-8">لا توجد أقسام حالياً</p>
+            {% endfor %}
+        </div>
+        
+        {# View All Button #}
+        <div class="text-center mt-8">
+            <a href="/categories" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition hover:opacity-90 text-white" style="background-color: #2F2824;">
+                عرض جميع الأقسام
+                <i class="sicon-keyboard-arrow-left"></i>
+            </a>
+        </div>
+    </div>
+</section>

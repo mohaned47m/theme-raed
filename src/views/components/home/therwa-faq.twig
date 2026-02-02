@@ -1,0 +1,100 @@
+{# ===== 8. الأسئلة الشائعة (FAQ Accordion) ===== #}
+{# إجابات فورية - تقليل الضغط على خدمة العملاء #}
+{# Accordion لتوفير المساحة #}
+
+<section class="therwa-faq py-12">
+    <div class="container">
+        {# Section Header #}
+        <div class="text-center mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3" style="color: #2F2824;">الأسئلة الشائعة</h2>
+            <p class="text-gray-500">إجابات فورية على أكثر الأسئلة شيوعاً</p>
+        </div>
+        
+        {# FAQ Accordion #}
+        <div class="max-w-3xl mx-auto space-y-3">
+            
+            {# FAQ 1 #}
+            <div class="faq-item bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                <button class="faq-btn w-full flex items-center justify-between p-5 text-right font-semibold hover:bg-gray-50 transition" style="color: #2F2824;" onclick="toggleFaq(this)">
+                    <span>ما هي طرق الدفع المتاحة؟</span>
+                    <i class="sicon-keyboard-arrow-down transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5">
+                    <p class="text-gray-600 leading-relaxed">نوفر عدة طرق للدفع تشمل: بطاقات الائتمان (فيزا/ماستركارد)، مدى، Apple Pay، تمارا للتقسيط، تحويل بنكي، والدفع عند الاستلام في بعض المناطق.</p>
+                </div>
+            </div>
+            
+            {# FAQ 2 #}
+            <div class="faq-item bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                <button class="faq-btn w-full flex items-center justify-between p-5 text-right font-semibold hover:bg-gray-50 transition" style="color: #2F2824;" onclick="toggleFaq(this)">
+                    <span>كم تستغرق عملية الشحن والتوصيل؟</span>
+                    <i class="sicon-keyboard-arrow-down transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5">
+                    <p class="text-gray-600 leading-relaxed">يتم التوصيل خلال 2-5 أيام عمل للمدن الرئيسية (الرياض، جدة، الدمام)، و5-7 أيام عمل للمناطق الأخرى. يمكنك تتبع طلبك من خلال رقم التتبع المرسل إليك عبر SMS.</p>
+                </div>
+            </div>
+            
+            {# FAQ 3 #}
+            <div class="faq-item bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                <button class="faq-btn w-full flex items-center justify-between p-5 text-right font-semibold hover:bg-gray-50 transition" style="color: #2F2824;" onclick="toggleFaq(this)">
+                    <span>هل يمكنني استرجاع أو استبدال المنتج؟</span>
+                    <i class="sicon-keyboard-arrow-down transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5">
+                    <p class="text-gray-600 leading-relaxed">نعم، نوفر سياسة استرجاع مرنة خلال 14 يوم من استلام الطلب بشرط أن يكون المنتج بحالته الأصلية وبتغليفه الكامل. يمكنك التواصل معنا لترتيب عملية الاسترجاع أو الاستبدال.</p>
+                </div>
+            </div>
+            
+            {# FAQ 4 #}
+            <div class="faq-item bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                <button class="faq-btn w-full flex items-center justify-between p-5 text-right font-semibold hover:bg-gray-50 transition" style="color: #2F2824;" onclick="toggleFaq(this)">
+                    <span>هل المنتجات أصلية ومضمونة؟</span>
+                    <i class="sicon-keyboard-arrow-down transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5">
+                    <p class="text-gray-600 leading-relaxed">جميع منتجاتنا أصلية 100% ومستوردة من المصادر الرسمية والوكلاء المعتمدين. نقدم ضمان شامل على جميع المنتجات يختلف حسب نوع المنتج (سنة إلى سنتين).</p>
+                </div>
+            </div>
+            
+            {# FAQ 5 #}
+            <div class="faq-item bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                <button class="faq-btn w-full flex items-center justify-between p-5 text-right font-semibold hover:bg-gray-50 transition" style="color: #2F2824;" onclick="toggleFaq(this)">
+                    <span>كيف يمكنني التواصل مع خدمة العملاء؟</span>
+                    <i class="sicon-keyboard-arrow-down transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5">
+                    <p class="text-gray-600 leading-relaxed">يمكنك التواصل معنا عبر الواتساب، البريد الإلكتروني، أو الاتصال المباشر. فريق الدعم متاح للرد على استفساراتكم من الساعة 9 صباحاً حتى 11 مساءً.</p>
+                </div>
+            </div>
+            
+        </div>
+        
+        {# Contact CTA #}
+        <div class="text-center mt-10">
+            <p class="text-gray-500 mb-4">لم تجد إجابة لسؤالك؟</p>
+            <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white" style="background-color: #87602C;">
+                <i class="sicon-headphones"></i>
+                تواصل معنا
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+function toggleFaq(btn) {
+    var answer = btn.nextElementSibling;
+    var icon = btn.querySelector('i');
+    var isOpen = !answer.classList.contains('hidden');
+    
+    // Close all others
+    document.querySelectorAll('.faq-answer').forEach(function(el) { el.classList.add('hidden'); });
+    document.querySelectorAll('.faq-btn i').forEach(function(el) { el.style.transform = 'rotate(0deg)'; });
+    
+    // Toggle current
+    if (!isOpen) {
+        answer.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+    }
+}
+</script>

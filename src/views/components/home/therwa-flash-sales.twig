@@ -1,0 +1,107 @@
+{# ===== 4. عروض الفلاش الحصرية (Flash Sales) ===== #}
+{# خلق حالة من الاستعجال (Urgency) مع عداد تنازلي #}
+{# كمبيوتر: grid | جوال: سلايدر #}
+
+<section class="therwa-flash-sales py-12" style="background-color: #2F2824;">
+    <div class="container">
+        {# Section Header with Countdown #}
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+            <div class="text-center md:text-right">
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
+                    <span class="text-2xl">⚡</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white">عروض الفلاش الحصرية</h2>
+                </div>
+                <p class="text-white/70">لا تفوت هذه العروض المحدودة!</p>
+            </div>
+            
+            {# Countdown Timer #}
+            <div class="flex items-center justify-center gap-2">
+                <span class="text-white/80 text-sm hidden md:block">ينتهي خلال:</span>
+                <div class="flex gap-2" id="flash-timer">
+                    <div class="text-center px-3 py-2 rounded-lg min-w-[55px]" style="background-color: #87602C;">
+                        <span class="block text-xl font-bold text-white" id="f-days">00</span>
+                        <span class="text-xs text-white/80">يوم</span>
+                    </div>
+                    <div class="text-center px-3 py-2 rounded-lg min-w-[55px]" style="background-color: #87602C;">
+                        <span class="block text-xl font-bold text-white" id="f-hours">00</span>
+                        <span class="text-xs text-white/80">ساعة</span>
+                    </div>
+                    <div class="text-center px-3 py-2 rounded-lg min-w-[55px]" style="background-color: #87602C;">
+                        <span class="block text-xl font-bold text-white" id="f-mins">00</span>
+                        <span class="text-xs text-white/80">دقيقة</span>
+                    </div>
+                    <div class="text-center px-3 py-2 rounded-lg min-w-[55px]" style="background-color: #87602C;">
+                        <span class="block text-xl font-bold text-white" id="f-secs">00</span>
+                        <span class="text-xs text-white/80">ثانية</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        {# Products - Slider for mobile #}
+        <div class="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {% for product in products %}
+                {% if loop.index <= 8 %}
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <salla-product-card
+                        product-id="{{ product.id }}"
+                        product='{{ product | json_encode }}'
+                        shadowOnHover
+                        show-quantity
+                    ></salla-product-card>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+        {# Mobile Slider #}
+        <div class="md:hidden">
+            <salla-slider type="carousel" show-controls>
+                {% for product in products %}
+                    {% if loop.index <= 8 %}
+                    <div class="slide px-2">
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                            <salla-product-card
+                                product-id="{{ product.id }}"
+                                product='{{ product | json_encode }}'
+                                shadowOnHover
+                            ></salla-product-card>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </salla-slider>
+        </div>
+        
+        {# View All Button #}
+        <div class="text-center mt-8">
+            <a href="/products?on_sale=1" class="inline-flex items-center gap-2 px-8 py-3 bg-white rounded-xl font-bold hover:bg-gray-100 transition" style="color: #2F2824;">
+                عرض جميع العروض
+                <i class="sicon-keyboard-arrow-left"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+(function(){
+    var end = new Date();
+    end.setDate(end.getDate() + 3);
+    function update() {
+        var now = new Date().getTime();
+        var diff = end - now;
+        if (diff > 0) {
+            var d = document.getElementById('f-days');
+            var h = document.getElementById('f-hours');
+            var m = document.getElementById('f-mins');
+            var s = document.getElementById('f-secs');
+            if(d) d.textContent = Math.floor(diff / 86400000).toString().padStart(2, '0');
+            if(h) h.textContent = Math.floor((diff % 86400000) / 3600000).toString().padStart(2, '0');
+            if(m) m.textContent = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
+            if(s) s.textContent = Math.floor((diff % 60000) / 1000).toString().padStart(2, '0');
+        }
+    }
+    update();
+    setInterval(update, 1000);
+})();
+</script>

@@ -1,0 +1,43 @@
+{# ===== 6. اكتشف مجموعتنا المختارة (Product Grid) ===== #}
+{# عرض المنتجات الأساسية أو الأكثر مبيعاً #}
+{# كمبيوتر: 4 في الصف | جوال: 2 في الصف #}
+
+<section class="therwa-products py-12">
+    <div class="container">
+        {# Section Header #}
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+            <div class="text-center md:text-right">
+                <h2 class="text-2xl md:text-3xl font-bold mb-2" style="color: #2F2824;">اكتشف مجموعتنا المختارة</h2>
+                <p class="text-gray-500">منتجات مختارة بعناية لتلبية احتياجاتك</p>
+            </div>
+            <a href="/products" class="hidden md:inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border-2 hover:bg-gray-50 transition" style="border-color: #2F2824; color: #2F2824;">
+                عرض الكل
+                <i class="sicon-keyboard-arrow-left"></i>
+            </a>
+        </div>
+        
+        {# Products Grid: 4 columns desktop, 2 columns mobile #}
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            {% for product in products %}
+                {% if loop.index <= 8 %}
+                <salla-product-card
+                    product-id="{{ product.id }}"
+                    product='{{ product | json_encode }}'
+                    shadowOnHover
+                    show-quantity
+                ></salla-product-card>
+                {% endif %}
+            {% else %}
+                <p class="col-span-full text-center text-gray-500 py-8">لا توجد منتجات حالياً</p>
+            {% endfor %}
+        </div>
+        
+        {# Mobile View All Button #}
+        <div class="text-center mt-8 md:hidden">
+            <a href="/products" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white" style="background-color: #2F2824;">
+                عرض جميع المنتجات
+                <i class="sicon-keyboard-arrow-left"></i>
+            </a>
+        </div>
+    </div>
+</section>
