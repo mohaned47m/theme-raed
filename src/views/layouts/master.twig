@@ -28,7 +28,6 @@
     {% hook head %}
     {% block styles %}{% endblock %}
     <link rel="stylesheet" href="{{ 'app.css' | asset }}">
-    <link rel="stylesheet" href="{{ 'styles/custom-theme.css' | asset }}">
     <link rel="stylesheet" href="{{ theme.font.path|cdn }}"/>
     <link rel="stylesheet" href="{{ 'fonts/sallaicons.css'|cdn }}"/>
     
@@ -141,7 +140,6 @@
             padding: 8px;
         }
     </style>
-    {# tracking services, custom css feature. #}
     {% hook 'head:end' %}
 </head>
 <body id="app" class="theme-raed overflow-x-hidden {% hook 'body:classes' %}
@@ -178,9 +176,6 @@
 {% if store.scope %}
     <salla-scopes selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>
 {% endif %}
-
-{# CRO Features #}
-{% include 'components.cro-features' ignore missing %}
 
 {% block scripts %}{% endblock %}
 </body>
