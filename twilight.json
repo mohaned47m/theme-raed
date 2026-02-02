@@ -134,116 +134,67 @@
     ],
     "components": [
         {
-            "key": "therwa-hero-001",
+            "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567001",
             "title": {"ar": "ذروة - بانر رئيسي", "en": "Therwa - Hero Slider"},
             "icon": "sicon-image-carousel",
             "path": "home.therwa-hero",
-            "fields": [
-                {"type": "collection", "id": "slides", "label": "السلايدات", "format": "collection", "item_label": "سلايد", "maxLength": 5, "fields": [
-                    {"type": "string", "id": "slides.image", "label": "صورة الخلفية", "format": "image"},
-                    {"type": "string", "id": "slides.title", "label": "العنوان", "format": "text", "multilanguage": true},
-                    {"type": "string", "id": "slides.subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true},
-                    {"type": "string", "id": "slides.description", "label": "الوصف", "format": "textarea", "multilanguage": true},
-                    {"type": "string", "id": "slides.button_text", "label": "نص الزر", "format": "text", "multilanguage": true},
-                    {"type": "string", "id": "slides.button_url", "label": "رابط الزر", "format": "text"},
-                    {"type": "string", "id": "slides.button2_text", "label": "نص الزر الثاني", "format": "text", "multilanguage": true},
-                    {"type": "string", "id": "slides.button2_url", "label": "رابط الزر الثاني", "format": "text"}
-                ]}
-            ]
+            "fields": []
         },
         {
-            "key": "therwa-categories-002",
+            "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567002",
             "title": {"ar": "ذروة - الأقسام", "en": "Therwa - Categories"},
             "icon": "sicon-layout-grid-rearrange",
             "path": "home.therwa-categories",
-            "fields": [
-                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "تسوق حسب الفئة", "multilanguage": true},
-                {"type": "string", "id": "subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true},
-                {"type": "number", "id": "limit", "label": "عدد الأقسام", "format": "integer", "value": 5},
-                {"type": "boolean", "id": "show_all_button", "label": "عرض زر الكل", "format": "switch", "value": true}
-            ]
+            "fields": []
         },
         {
-            "key": "therwa-features-003",
+            "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567003",
             "title": {"ar": "ذروة - مميزات المتجر", "en": "Therwa - Store Features"},
             "icon": "sicon-star",
             "path": "home.therwa-features",
-            "fields": [
-                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "لماذا تختارنا؟", "multilanguage": true},
-                {"type": "string", "id": "subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true}
-            ]
+            "fields": []
         },
         {
-            "key": "therwa-flash-sale-004",
+            "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567004",
             "title": {"ar": "ذروة - عروض الفلاش", "en": "Therwa - Flash Sale"},
             "icon": "sicon-flash",
             "path": "home.therwa-flash-sale",
-            "fields": [
-                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "عروض الفلاش الحصرية", "multilanguage": true},
-                {"type": "string", "id": "subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true},
-                {"type": "number", "id": "countdown_days", "label": "أيام العد التنازلي", "format": "integer", "value": 3}
-            ]
+            "fields": []
         },
         {
-            "key": "therwa-featured-005",
+            "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567005",
             "title": {"ar": "ذروة - منتجات مميزة", "en": "Therwa - Featured Products"},
             "icon": "sicon-box",
             "path": "home.therwa-featured-products",
-            "fields": [
-                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "اكتشف مجموعتنا المختارة", "multilanguage": true},
-                {"type": "string", "id": "subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true},
-                {"type": "number", "id": "limit", "label": "عدد المنتجات", "format": "integer", "value": 8}
-            ]
+            "fields": []
         },
         {
-            "key": "therwa-banner-006",
+            "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567006",
             "title": {"ar": "ذروة - بانر عريض", "en": "Therwa - Wide Banner"},
             "icon": "sicon-image",
             "path": "home.therwa-banner",
-            "fields": [
-                {"type": "string", "id": "image", "label": "صورة الخلفية", "format": "image"},
-                {"type": "string", "id": "badge", "label": "الشارة", "format": "text", "multilanguage": true},
-                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "مجموعة البصريات الفاخرة", "multilanguage": true},
-                {"type": "string", "id": "description", "label": "الوصف", "format": "textarea", "multilanguage": true},
-                {"type": "string", "id": "button_text", "label": "نص الزر", "format": "text", "value": "تسوق الآن", "multilanguage": true},
-                {"type": "string", "id": "button_url", "label": "رابط الزر", "format": "text"},
-                {"type": "string", "id": "product_image", "label": "صورة المنتج", "format": "image"}
-            ]
+            "fields": []
         },
         {
-            "key": "therwa-testimonials-007",
+            "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567007",
             "title": {"ar": "ذروة - آراء العملاء", "en": "Therwa - Testimonials"},
             "icon": "sicon-chat-bubbles",
             "path": "home.therwa-testimonials",
-            "fields": [
-                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "تجارب المجتمع", "multilanguage": true},
-                {"type": "string", "id": "subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true}
-            ]
+            "fields": []
         },
         {
-            "key": "therwa-faq-008",
+            "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567008",
             "title": {"ar": "ذروة - الأسئلة الشائعة", "en": "Therwa - FAQ"},
             "icon": "sicon-help-circle",
             "path": "home.therwa-faq",
-            "fields": [
-                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "الأسئلة الشائعة", "multilanguage": true},
-                {"type": "string", "id": "subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true},
-                {"type": "collection", "id": "faqs", "label": "الأسئلة", "format": "collection", "item_label": "سؤال", "maxLength": 10, "fields": [
-                    {"type": "string", "id": "faqs.question", "label": "السؤال", "format": "text", "multilanguage": true},
-                    {"type": "string", "id": "faqs.answer", "label": "الإجابة", "format": "textarea", "multilanguage": true}
-                ]}
-            ]
+            "fields": []
         },
         {
-            "key": "therwa-blog-009",
+            "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567009",
             "title": {"ar": "ذروة - المدونة", "en": "Therwa - Blog"},
             "icon": "sicon-file-text",
             "path": "home.therwa-blog",
-            "fields": [
-                {"type": "string", "id": "title", "label": "العنوان", "format": "text", "value": "المدونة", "multilanguage": true},
-                {"type": "string", "id": "subtitle", "label": "العنوان الفرعي", "format": "text", "multilanguage": true},
-                {"type": "number", "id": "limit", "label": "عدد المقالات", "format": "integer", "value": 3}
-            ]
+            "fields": []
         }
     ],
     "support_url": "https://salla.com/",
