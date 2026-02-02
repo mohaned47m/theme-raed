@@ -1,0 +1,25 @@
+{# ===== ذروة - شارات الثقة ===== #}
+{% if theme.settings.get('enable_trust', true) %}
+<div class="therwa-trust-badges py-6">
+    <div class="container">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="trust-badge flex flex-col items-center text-center p-4 rounded-lg" style="background-color: {{ theme.color.lighter(0.95) }}; border: 1px solid {{ theme.color.lighter(0.85) }};">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center mb-3" style="background-color: {{ theme.color.primary }};"><i class="sicon-shield-check text-xl" style="color: {{ theme.color.reverse_text }};"></i></div>
+                <span class="text-sm font-semibold" style="color: {{ theme.color.primary }};">{{ theme.settings.get('trust_guarantee', 'ضمان سنتين') }}</span>
+            </div>
+            <div class="trust-badge flex flex-col items-center text-center p-4 rounded-lg" style="background-color: {{ theme.color.lighter(0.95) }}; border: 1px solid {{ theme.color.lighter(0.85) }};">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center mb-3" style="background-color: {{ theme.color.primary }};"><i class="sicon-return text-xl" style="color: {{ theme.color.reverse_text }};"></i></div>
+                <span class="text-sm font-semibold" style="color: {{ theme.color.primary }};">{{ theme.settings.get('trust_return', 'استرجاع 14 يوم') }}</span>
+            </div>
+            <div class="trust-badge flex flex-col items-center text-center p-4 rounded-lg" style="background-color: {{ theme.color.lighter(0.95) }}; border: 1px solid {{ theme.color.lighter(0.85) }};">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center mb-3" style="background-color: {{ theme.color.primary }};"><i class="sicon-lock text-xl" style="color: {{ theme.color.reverse_text }};"></i></div>
+                <span class="text-sm font-semibold" style="color: {{ theme.color.primary }};">{{ theme.settings.get('trust_payment', 'دفع آمن 100%') }}</span>
+            </div>
+            <div class="trust-badge flex flex-col items-center text-center p-4 rounded-lg" style="background-color: {{ theme.color.lighter(0.95) }}; border: 1px solid {{ theme.color.lighter(0.85) }};">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center mb-3" style="background-color: {{ theme.color.primary }};"><i class="sicon-shipping-fast text-xl" style="color: {{ theme.color.reverse_text }};"></i></div>
+                <span class="text-sm font-semibold" style="color: {{ theme.color.primary }};">{{ theme.settings.get('trust_shipping', 'شحن سريع') }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
