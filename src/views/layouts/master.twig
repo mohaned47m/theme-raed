@@ -83,25 +83,74 @@
     <link rel="stylesheet" href="{{ theme.font.path|cdn }}"/>
     <link rel="stylesheet" href="{{ 'fonts/sallaicons.css'|cdn }}"/>
     
-   <style>
+<style>
     /* Custom Theme - صياد نجد */
-    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
     
     :root {
-        --font-main: 'Tajawal', sans-serif;
+        --font-main: 'Cairo', sans-serif;
         --color-primary: #87602C;
         --color-primary-dark: #2F2824;
         --color-primary-light: #a8845a;
         --color-primary-reverse: #FFFFFF;
     }
     
-    body {
-        font-family: 'Tajawal', sans-serif !important;
+    body, * {
+        font-family: 'Cairo', sans-serif !important;
     }
     
-    /* Header */
-    header, .header, [class*="header"] {
+    /* Header Background Fix */
+    header, .header, .store-header, .main-nav-container, .main-nav-container .inner,
+    #mainnav, [class*="header"], .top-navbar {
         background-color: #2F2824 !important;
+    }
+    
+    /* Menu Text Color Fix */
+    .main-nav-container a, 
+    .main-nav-container span,
+    .main-nav-container button,
+    custom-main-menu,
+    custom-main-menu a,
+    custom-main-menu span,
+    .main-menu a,
+    .main-menu span,
+    nav a, nav span {
+        color: white !important;
+    }
+    
+    /* Dropdown Menu Fix */
+    .dropdown-menu, 
+    [class*="dropdown"], 
+    [class*="submenu"],
+    .sub-menu,
+    .mega-menu {
+        background-color: #2F2824 !important;
+    }
+    
+    .dropdown-menu a,
+    [class*="dropdown"] a,
+    [class*="submenu"] a,
+    .sub-menu a,
+    .mega-menu a {
+        color: white !important;
+    }
+    
+    .dropdown-menu a:hover,
+    [class*="dropdown"] a:hover {
+        color: #87602C !important;
+        background-color: rgba(255,255,255,0.1) !important;
+    }
+    
+    /* Search Box */
+    .header-search input,
+    salla-search input {
+        background-color: rgba(255,255,255,0.1) !important;
+        border-color: rgba(255,255,255,0.1) !important;
+        color: white !important;
+    }
+    
+    salla-search input::placeholder {
+        color: #94a3b8 !important;
     }
     
     /* Buttons */
@@ -111,9 +160,27 @@
     }
     
     /* Footer */
-    footer, .footer {
+    footer, .footer, [class*="footer"], .main-footer {
         background-color: #2F2824 !important;
         color: white !important;
+    }
+    
+    footer *, .footer *, [class*="footer"] * {
+        color: #d1d5db !important;
+    }
+    
+    footer h1, footer h2, footer h3, footer h4, footer h5,
+    .footer h1, .footer h2, .footer h3, .footer h4, .footer h5 {
+        color: white !important;
+    }
+    
+    footer a:hover, .footer a:hover {
+        color: #87602C !important;
+    }
+    
+    /* Fix white section under header */
+    .top-navbar {
+        display: none !important;
     }
 </style>
     {# tracking services, custom css feature. #}
