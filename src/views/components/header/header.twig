@@ -5,79 +5,162 @@
 | cart.items_count | int     |                                 |
 | cart.total       | string  | Formatted total ex: "١٠٠ ر.س"   |
 #}
-{% set important_links = theme.settings.get('important_links') %}
-<header class="store-header">
-  {# Top Nav #}
-  <div class="top-navbar">
-    <div class="container flex justify-between">
-      <div class="flex-1 flex items-center gap-2">
-          {# Footer Menu #}
-          {% if important_links %}
-            <salla-menu source="footer" topnav></salla-menu>
-          {% endif %}
 
-          {# Language & Currency Component #}
-          <div class="header-buttons">
-              {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
-                  <button type="button" onclick="salla.event.dispatch('localization::open')" class="btn--rounded-gray basis-0">
-                      <span>{{ user.language.name }}</span>
-                      <span class="mx-1.5">|</span> <span>{{ currency.symbol }}</span>
-                  </button>
-                  <salla-localization-modal></salla-localization-modal>
-              {% endif %}
-          </div>
-
-          {# Scopes | Branches #}
-          {% if store.scope %}
-              <button class="btn--rounded-gray"
-                      onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})">
-                  <i class="sicon-location rtl:ml-1 ltr:mr-1"></i> {{ store.scope.name }}
-              </button>
-          {% endif %}
-
-          {# Search bar #}
-          <div class="header-search flex-1">
-            <salla-search inline oval height="36"></salla-search>
-          </div>
-      </div>
-
-      <salla-contacts is-header></salla-contacts>
+{# ===== Top Bar - الشريط العلوي ===== #}
+<div class="top-bar-custom">
+    <div class="container flex justify-between items-center">
+        <div class="flex items-center gap-6">
+            {# Language #}
+            {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
+                <button type="button" onclick="salla.event.dispatch('localization::open')" class="top-bar-link">
+                    <i class="sicon-globe text-sm"></i>
+                    <span>اللغة: {{ user.language.name }}</span>
+                </button>
+                <salla-localization-modal></salla-localization-modal>
+            {% endif %}
+            
+            {# Track Order #}
+            <a href="/orders" class="top-bar-link">
+                <i class="sicon-shipping-fast text-sm"></i>
+                <span>تتبع طلبك</span>
+            </a>
+        </div>
+        
+        <div class="hidden md:flex items-center gap-4">
+            <span class="text-amber-600">خبرة أكثر من 10 سنوات</span>
+            <span class="h-3 w-px bg-white/20"></span>
+            <span>معدات احترافية موثوقة</span>
+        </div>
     </div>
-  </div>
+</div>
 
-  {# Main Nav #}
-  <div id="mainnav" class="main-nav-container shadow-default bg-white flex items-center">
-      <div class="inner bg-inherit w-full">
-          <div class="container">
-              <div class="flex items-stretch justify-between relative">
-                  <div class="flex items-center">
-                      <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
-                        <i class="sicon-menu text-primary text-2xl"></i>
-                      </a>
-                      <a class="navbar-brand" href="{{ store.url }}">
-                          <img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo|cdn(175) }}" alt="{{ store.name }} logo">
-                          {% if is_page('index') %}
-                            <h1 class="sr-only">{{ store.name }}</h1>
-                          {% else %}
-                            <h2 class="sr-only">{{ store.name }}</h2>
-                          {% endif %}
-                      </a>
-                      <custom-main-menu></custom-main-menu>
-                  </div>
-                  <div class="flex items-center justify-end my-2.5">
-                      {% if user.type=='user' %}
-                        <salla-user-menu avatar-only show-header></salla-user-menu>
-                      {% else %}
-                          <button class="header-btn" aria-label="user-icon" onclick="salla.event.dispatch('login::open')">
-                            <i class="header-btn__icon sicon-user-circle"></i>
-                          </button>
-                      {% endif %}
-                      <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4">
-                        <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
-                      </salla-cart-summary>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+{# ===== Main Header - الهيدر الرئيسي ===== #}
+<header class="main-header-custom">
+    <div class="container">
+        <div class="flex items-center justify-between gap-8 py-4">
+            
+            {# === Logo === #}
+            <div class="flex items-center gap-3">
+                <a href="{{ store.url }}" class="flex items-center gap-3">
+                    <img src="{{ store.logo|cdn(175) }}" alt="{{ store.name }}" class="h-10 w-auto">
+                    <div class="hidden sm:flex flex-col">
+                        <span class="text-xl font-black text-white leading-none">{{ store.name }}</span>
+                        <span class="text-[10px] uppercase tracking-widest text-amber-600 font-bold">
+                            {{ store.description|slice(0, 20) ?? 'الهوية الأصلية' }}
+                        </span>
+                    </div>
+                </a>
+                {% if is_page('index') %}
+                    <h1 class="sr-only">{{ store.name }}</h1>
+                {% else %}
+                    <h2 class="sr-only">{{ store.name }}</h2>
+                {% endif %}
+            </div>
+
+            {# === Search === #}
+            <div class="flex-1 max-w-2xl hidden lg:block">
+                <salla-search class="header-search-custom"></salla-search>
+            </div>
+
+            {# === Actions === #}
+            <div class="flex items-center gap-3">
+                {# Mobile Menu #}
+                <a class="lg:hidden header-action-btn" href="#mobile-menu" aria-label="Open-menu">
+                    <i class="sicon-menu text-xl"></i>
+                </a>
+
+                {# Mobile Search #}
+                <button class="lg:hidden header-action-btn" onclick="salla.event.dispatch('search::open')">
+                    <i class="sicon-search text-xl"></i>
+                </button>
+
+                {# User Account #}
+                {% if user.type == 'user' %}
+                    <salla-user-menu avatar-only show-header></salla-user-menu>
+                {% else %}
+                    <button class="header-action-btn hidden sm:flex" onclick="salla.event.dispatch('login::open')" aria-label="Login">
+                        <i class="sicon-user-circle text-xl"></i>
+                    </button>
+                {% endif %}
+
+                {# Wishlist #}
+                <a href="/wishlist" class="header-action-btn hidden sm:flex" aria-label="Wishlist">
+                    <i class="sicon-heart text-xl"></i>
+                </a>
+
+                {# Cart #}
+                <salla-cart-summary class="cart-btn-custom">
+                    <i slot="icon" class="sicon-shopping-bag text-xl"></i>
+                </salla-cart-summary>
+            </div>
+        </div>
+    </div>
+    
+    {# === Categories Menu === #}
+    <div class="hidden lg:block border-t border-white/10">
+        <div class="container">
+            <custom-main-menu></custom-main-menu>
+        </div>
+    </div>
 </header>
+
+<style>
+/* Top Bar */
+.top-bar-custom {
+    background-color: #1e1a18;
+    padding: 0.5rem 0;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.top-bar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s;
+}
+
+.top-bar-link:hover {
+    color: white;
+}
+
+/* Main Header */
+.main-header-custom {
+    background-color: #2F2824 !important;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* Action Buttons */
+.header-action-btn {
+    padding: 0.625rem;
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 0.5rem;
+    color: white;
+    transition: all 0.3s;
+}
+
+.header-action-btn:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Cart Button */
+.cart-btn-custom {
+    background-color: #87602C !important;
+    color: white !important;
+    padding: 0.625rem;
+    border-radius: 0.5rem;
+}
+
+.cart-btn-custom:hover {
+    filter: brightness(1.1);
+}
+
+/* Hide default header styles */
+.store-header, .top-navbar, .main-nav-container {
+    display: none !important;
+}
+</style>
