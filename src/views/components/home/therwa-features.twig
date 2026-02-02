@@ -1,0 +1,44 @@
+{# ===== ذروة - مميزات المتجر ===== #}
+<section class="therwa-store-features py-12">
+    <div class="container">
+        {# Section Header #}
+        <div class="text-center mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3" style="color: {{ theme.color.primary }};">
+                {{ component.title|default('لماذا تختارنا؟') }}
+            </h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">
+                {{ component.subtitle|default('نقدم لكم أفضل تجربة تسوق مع ضمان الجودة والخدمة المتميزة') }}
+            </p>
+        </div>
+        
+        {# Features Grid #}
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {% for feature in component.features %}
+            <div class="feature-card text-center p-6 rounded-2xl transition-all hover:shadow-lg" style="background-color: {{ theme.color.lighter(0.97) }}; border: 1px solid {{ theme.color.lighter(0.9) }};">
+                <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background-color: {{ theme.color.primary }};">
+                    <i class="{{ feature.icon|default('sicon-star') }} text-2xl" style="color: {{ theme.color.reverse_text }};"></i>
+                </div>
+                <h3 class="font-bold mb-2" style="color: {{ theme.color.primary }};">{{ feature.title }}</h3>
+                <p class="text-sm text-gray-500">{{ feature.description }}</p>
+            </div>
+            {% else %}
+            {# Default Features #}
+            {% set default_features = [
+                {'icon': 'sicon-shipping-fast', 'title': 'شحن سريع', 'description': 'توصيل لجميع مناطق المملكة خلال 2-5 أيام'},
+                {'icon': 'sicon-shield-check', 'title': 'منتجات أصلية', 'description': 'ضمان أصالة جميع المنتجات 100%'},
+                {'icon': 'sicon-return', 'title': 'استرجاع مجاني', 'description': 'استرجاع واستبدال خلال 14 يوم'},
+                {'icon': 'sicon-headphones', 'title': 'دعم متواصل', 'description': 'فريق دعم متاح للمساعدة 24/7'}
+            ] %}
+            {% for feature in default_features %}
+            <div class="feature-card text-center p-6 rounded-2xl transition-all hover:shadow-lg hover:-translate-y-1" style="background-color: {{ theme.color.lighter(0.97) }}; border: 1px solid {{ theme.color.lighter(0.9) }};">
+                <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background-color: {{ theme.color.primary }};">
+                    <i class="{{ feature.icon }} text-2xl" style="color: {{ theme.color.reverse_text }};"></i>
+                </div>
+                <h3 class="font-bold mb-2" style="color: {{ theme.color.primary }};">{{ feature.title }}</h3>
+                <p class="text-sm text-gray-500">{{ feature.description }}</p>
+            </div>
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
