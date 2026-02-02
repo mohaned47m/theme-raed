@@ -1,0 +1,18 @@
+{% if theme.settings.get('enable_countdown', true) %}
+<div class="therwa-countdown py-6">
+    <div class="container">
+        <div class="p-6 rounded-xl text-center" style="background: linear-gradient(135deg, {{ theme.color.primary }} 0%, {{ theme.color.darker(0.2) }} 100%);">
+            <p class="text-sm mb-4" style="color: {{ theme.color.reverse_text }};">{{ theme.settings.get('countdown_text', '⚡ ينتهي العرض خلال:') }}</p>
+            <div class="flex justify-center gap-3">
+                <div class="px-4 py-3 rounded-lg" style="background-color: rgba(255,255,255,0.2);"><span class="block text-2xl font-bold" style="color: {{ theme.color.reverse_text }};" id="days">00</span><span class="text-xs" style="color: rgba(255,255,255,0.8);">يوم</span></div>
+                <div class="px-4 py-3 rounded-lg" style="background-color: rgba(255,255,255,0.2);"><span class="block text-2xl font-bold" style="color: {{ theme.color.reverse_text }};" id="hours">00</span><span class="text-xs" style="color: rgba(255,255,255,0.8);">ساعة</span></div>
+                <div class="px-4 py-3 rounded-lg" style="background-color: rgba(255,255,255,0.2);"><span class="block text-2xl font-bold" style="color: {{ theme.color.reverse_text }};" id="minutes">00</span><span class="text-xs" style="color: rgba(255,255,255,0.8);">دقيقة</span></div>
+                <div class="px-4 py-3 rounded-lg" style="background-color: rgba(255,255,255,0.2);"><span class="block text-2xl font-bold" style="color: {{ theme.color.reverse_text }};" id="seconds">00</span><span class="text-xs" style="color: rgba(255,255,255,0.8);">ثانية</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+(function(){var e=new Date;e.setDate(e.getDate()+3);setInterval(function(){var t=e-new Date;t>0&&(document.getElementById("days").textContent=Math.floor(t/864e5).toString().padStart(2,"0"),document.getElementById("hours").textContent=Math.floor(t%864e5/36e5).toString().padStart(2,"0"),document.getElementById("minutes").textContent=Math.floor(t%36e5/6e4).toString().padStart(2,"0"),document.getElementById("seconds").textContent=Math.floor(t%6e4/1e3).toString().padStart(2,"0"))},1e3)})();
+</script>
+{% endif %}
