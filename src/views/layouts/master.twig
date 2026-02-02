@@ -89,27 +89,27 @@
     
     :root {
         --font-main: 'Cairo', sans-serif;
-        --color-primary: #87602C;
-        --color-primary-dark: #2F2824;
-        --color-primary-light: #a8845a;
-        --color-primary-reverse: #FFFFFF;
+        /* الألوان من داشبورد سلة */
+        --color-primary: {{ theme.color.primary }};
+        --color-primary-dark: {{ theme.color.darker(0.3) }};
+        --color-primary-light: {{ theme.color.lighter(0.2) }};
+        --color-primary-reverse: {{ theme.color.reverse_text }};
     }
     
     body, * {
         font-family: 'Cairo', sans-serif !important;
     }
     
-    /* Body Background - White */
     body {
         background-color: #FFFFFF !important;
     }
     
-    /* Header & Top Bar Only */
+    /* Header - يستخدم اللون من الداشبورد */
     .store-header,
     #mainnav,
     .main-nav-container,
     .main-nav-container .inner {
-        background-color: #2F2824 !important;
+        background-color: var(--color-primary-dark) !important;
     }
     
     /* Menu Links */
@@ -117,50 +117,41 @@
     custom-main-menu span,
     .main-nav-container a,
     .main-nav-container span {
-        color: white !important;
+        color: var(--color-primary-reverse) !important;
     }
     
-    /* Dropdown Menu */
+    /* Dropdown */
     .s-menu-dropdown,
     .dropdown-menu {
-        background-color: #2F2824 !important;
+        background-color: var(--color-primary-dark) !important;
     }
     
-    .s-menu-dropdown a,
-    .dropdown-menu a {
-        color: white !important;
-    }
-    
-    .s-menu-dropdown a:hover,
-    .dropdown-menu a:hover {
-        color: #87602C !important;
+    .s-menu-dropdown a:hover {
+        color: var(--color-primary) !important;
     }
     
     /* Buttons */
     .s-button-primary, 
     .btn--primary {
-        background-color: #87602C !important;
-        border-color: #87602C !important;
+        background-color: var(--color-primary) !important;
+        border-color: var(--color-primary) !important;
     }
     
-    /* Footer Only */
-    footer, 
-    .footer {
-        background-color: #2F2824 !important;
-        color: white !important;
+    /* Footer */
+    footer, .footer {
+        background-color: var(--color-primary-dark) !important;
+        color: var(--color-primary-reverse) !important;
     }
     
-    footer a, footer span, footer p,
-    .footer a, .footer span, .footer p {
+    footer a, footer span, footer p {
         color: #d1d5db !important;
     }
     
-    footer h4, footer h5,
-    .footer h4, .footer h5 {
-        color: white !important;
+    footer a:hover {
+        color: var(--color-primary) !important;
     }
     
-    /* Hide old top navbar */
+    /* Top Bar */
     .top-navbar {
         display: none !important;
     }
